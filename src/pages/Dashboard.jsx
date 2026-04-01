@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Users, Calendar, TrendingUp, DollarSign, Plus, ArrowRight, Clock, ChevronRight } from "lucide-react";

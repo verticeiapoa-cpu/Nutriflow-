@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { Camera, Plus, Calendar, Flame, ChevronDown, ChevronUp, Trash2, Loader2 } from "lucide-react";
 import AnaliseFotoModal from "../components/diario/AnaliseFotoModal";
 

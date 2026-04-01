@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { Search, SlidersHorizontal, ShieldCheck } from "lucide-react";
 import AlimentoCard from "../components/alimentos/AlimentoCard";
 import AlimentoModal from "../components/alimentos/AlimentoModal";

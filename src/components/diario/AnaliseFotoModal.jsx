@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { X, Camera, Upload, Loader2, Check, ImagePlus, Zap } from "lucide-react";
 
 const REFEICAO_OPTIONS = [

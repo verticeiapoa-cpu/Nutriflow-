@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { X, Zap, Loader2 } from "lucide-react";
 
 export default function AIExamAnalysis({ exam, onClose, onSave }) {

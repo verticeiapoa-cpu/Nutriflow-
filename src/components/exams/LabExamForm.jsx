@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { X, Upload } from "lucide-react";
 
 export default function LabExamForm({ patients, defaultPatient, onClose, onSave }) {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { Loader2, CheckCircle2, AlertCircle, Play, Database, ChevronDown, ChevronUp } from "lucide-react";
 
 const BATCHES = [

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { Send, Plus, Zap, Trash2, MessageCircle } from "lucide-react";
 import MessageBubble from "../components/ai/MessageBubble";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { base44 } from "@/api/base44Client";
+import { db as base44 } from "@/api/localDB";
 import { Plus, FlaskConical, Zap } from "lucide-react";
 import LabExamForm from "../exams/LabExamForm";
 import AIExamAnalysis from "../exams/AIExamAnalysis";
