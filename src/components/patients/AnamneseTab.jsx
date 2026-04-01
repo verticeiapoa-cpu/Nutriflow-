@@ -3,7 +3,7 @@ import { getAnamnese, saveAnamnese } from "@/lib/storage";
 import { ClipboardList, Save, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
 import toast from "react-hot-toast";
 
-const SECOES = [
+const _SECOES = [
   "Dados Clínicos",
   "Hábitos Alimentares",
   "Hábito Intestinal",

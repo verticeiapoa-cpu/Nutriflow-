@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const REFEICOES_OPTS = ["Café da manhã","Lanche da manhã","Almoço","Lanche da tarde","Jantar","Ceia","Lanche noturno"];
 const LOCAIS = ["Casa","Trabalho","Restaurante","Na rua","Outro"];
-const COMPANHIA = ["Sozinho","Família","Colegas","Outros"];
+const _COMPANHIA = ["Sozinho","Família","Colegas","Outros"];
 
 const emptyItem = () => ({ nome: "", qtd: "", un: "g", kcal: "", ptn: "", cho: "", lip: "" });
 const emptyRefeicao = () => ({
@@ -114,7 +114,7 @@ export default function RecordatorioTab({ patientId }) {
           <div className="space-y-2">
             {[...records].reverse().map((rec) => {
               const t = calcTotais(rec.refeicoes);
-              const pctKcal = metas?.kcal ? Math.round((t.kcal / metas.kcal) * 100) : null;
+              const _pctKcal = metas?.kcal ? Math.round((t.kcal / metas.kcal) * 100) : null;
               return (
                 <div key={rec._id} className="border border-gray-100 rounded-xl p-4 space-y-2">
                   <div className="flex items-start justify-between gap-3">

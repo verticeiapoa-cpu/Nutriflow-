@@ -22,7 +22,7 @@ const RCV_CINTURA = {
   masculino: { ok: 94, risco: 102 },
   feminino: { ok: 80, risco: 88 },
 };
-const RCV_RCQ = {
+const _RCV_RCQ = {
   masculino: { baixo: 0.85, alto: 0.95 },
   feminino: { baixo: 0.80, alto: 0.85 },
 };
@@ -153,7 +153,7 @@ export default function AntropometriaTab({ patientId, patient }) {
     return diff;
   };
 
-  const DeltaBadge = ({ key: k }) => {
+  const _DeltaBadge = ({ key: k }) => {
     const d = delta(k);
     if (d === null) return null;
     const positive = d > 0;
