@@ -3,17 +3,6 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://base44.app/api/:path*"
-    },
-    {
-      "source": "/app-logs/:path*",
-      "destination": "https://base44.app/app-logs/:path*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
