@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { getMetas, saveMetas } from "@/lib/storage";
+import { useState, useEffect, useMemo } from "react";
+import { getMetas, saveMetas, getAntropometria } from "@/lib/storage";
 import { Target, Calculator, Save, Info } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -69,15 +69,19 @@ export default function MetasTab({ patientId, patient }) {
   };
 
   const handleCalc = () => {
+    const antro = getAntropometria(patientId);
+    const latest = antro[antro.length - 1];
+    const peso = parseFloat(latest?.peso) || parseFloat(patient?.weight) || 60;
+    const altura = parseFloat(latest?.altura) || parseFloat(patient?.height) || 165;
     const idade = patient?.birth_date
       ? Math.floor((new Date() - new Date(patient.birth_date)) / (365.25 * 24 * 60 * 60 * 1000))
       : 30;
-    const tmb = calcTMB(calc.equacao, patient?.gender || "feminino", patient?.weight, patient?.height, idade);
+    const tmb = calcTMB(calc.equacao, patient?.gender || "feminino", peso, altura, idade);
     const vet = Math.round(tmb * calc.fator);
-    const ptn_g = Math.round((patient?.weight || 60) * calc.ptn_kg);
+    const ptn_g = Math.round(peso * calc.ptn_kg);
     const cho_g = Math.round((vet * (calc.cho_pct / 100)) / 4);
     const lip_g = Math.round((vet * (calc.lip_pct / 100)) / 9);
-    const agua_ml = Math.round((patient?.weight || 60) * 35);
+    const agua_ml = Math.round(peso * 35);
     setMetas(m => ({ ...m, kcal: vet, ptn_g, cho_g, lip_g, agua_ml, base: `${calc.equacao} × ${calc.fator}` }));
     setShowCalc(false);
     toast.success("Metas calculadas! Salve para confirmar.");

@@ -15,6 +15,7 @@ import AnamneseTab from "../components/patients/AnamneseTab";
 import AntropometriaTab from "../components/patients/AntropometriaTab";
 import RecordatorioTab from "../components/patients/RecordatorioTab";
 import MetasTab from "../components/patients/MetasTab";
+import ProntuarioTab from "../components/patients/ProntuarioTab";
 import { getFotoPaciente, getAnamnese } from "@/lib/storage";
 
 const tabs = [
@@ -25,6 +26,7 @@ const tabs = [
   { id: "mealplan",      label: "Plano Alimentar", icon: Utensils },
   { id: "recordatorio",  label: "Recordatório",    icon: BookOpen },
   { id: "metas",         label: "Metas",           icon: Target },
+  { id: "prontuario",    label: "Prontuário",      icon: FileText },
   { id: "exams",         label: "Exames",          icon: FlaskConical },
   { id: "consultations", label: "Consultas",       icon: Calendar },
 ];
@@ -244,6 +246,9 @@ export default function PatientDetail() {
           {activeTab === "mealplan" && <MealPlanTab patientId={patientId} patientName={patient.full_name} patientPhone={patient.phone} patient={patient} />}
           {activeTab === "recordatorio" && <RecordatorioTab patientId={patientId} />}
           {activeTab === "metas" && <MetasTab patientId={patientId} patient={patient} />}
+          {activeTab === "prontuario" && (
+            <ProntuarioTab patientId={patient.id} patientName={patient.full_name} />
+          )}
           {activeTab === "exams" && <LabExamsTab patientId={patientId} patientName={patient.full_name} />}
           {activeTab === "consultations" && <ConsultationsTab patientId={patientId} patientName={patient.full_name} />}
         </div>

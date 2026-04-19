@@ -61,6 +61,15 @@ import SeedAlimentos from './pages/SeedAlimentos';
 import TabelaAlimentos from './pages/TabelaAlimentos';
 import DiarioAlimentar from './pages/DiarioAlimentar';
 import Settings from './pages/Settings';
+import PlanejamentoEnergetico from './pages/PlanejamentoEnergetico';
+import PacientePortal from './pages/PacientePortal';
+import PacientesAcesso from './pages/PacientesAcesso';
+import Impressos from './pages/Impressos';
+import Orientacoes from './pages/Orientacoes';
+import Atestados from './pages/Atestados';
+import PedidoExames from './pages/PedidoExames';
+import ModelosMensagens from './pages/ModelosMensagens';
+import MensagensAuto from './pages/MensagensAuto';
 import __Layout from './Layout.jsx';
 
 
@@ -78,7 +87,16 @@ export const PAGES = {
     "SeedAlimentos": SeedAlimentos,
     "TabelaAlimentos": TabelaAlimentos,
     "DiarioAlimentar": DiarioAlimentar,
+    "PlanejamentoEnergetico": PlanejamentoEnergetico,
     "Settings": Settings,
+    "PacientePortal": PacientePortal,
+    "PacientesAcesso": PacientesAcesso,
+    "Impressos": Impressos,
+    "Orientacoes": Orientacoes,
+    "Atestados": Atestados,
+    "PedidoExames": PedidoExames,
+    "ModelosMensagens": ModelosMensagens,
+    "MensagensAuto": MensagensAuto,
 }
 
 export const pagesConfig = {

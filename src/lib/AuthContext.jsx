@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { getSession, login, logout } from '@/api/auth';
+import { getSession, loginAdmin, loginPaciente, logout } from '@/api/auth';
 
 const AuthContext = createContext();
 
@@ -17,6 +17,21 @@ export const AuthProvider = ({ children }) => {
     setIsLoadingAuth(false);
   }, []);
 
+  const handleLoginAdmin = (email, senha) => {
+    const session = loginAdmin(email, senha);
+    setUser(session);
+    setIsAuthenticated(true);
+    return session;
+  };
+
+  const handleLoginPaciente = (email) => {
+    // Pode lançar erro se e-mail não encontrado
+    const session = loginPaciente(email);
+    setUser(session);
+    setIsAuthenticated(true);
+    return session;
+  };
+
   const handleLogout = () => {
     logout();
     setUser(null);
@@ -24,7 +39,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, isLoadingAuth, isLoadingPublicSettings: false, authError: null, logout: handleLogout, navigateToLogin: () => {}, checkAppState: () => {} }}>
+    <AuthContext.Provider value={{
+      user,
+      isAuthenticated,
+      isLoadingAuth,
+      isLoadingPublicSettings: false,
+      authError: null,
+      loginAdmin: handleLoginAdmin,
+      loginPaciente: handleLoginPaciente,
+      logout: handleLogout,
+      navigateToLogin: () => {},
+      checkAppState: () => {},
+    }}>
       {children}
     </AuthContext.Provider>
   );

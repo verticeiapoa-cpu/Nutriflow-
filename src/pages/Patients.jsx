@@ -21,8 +21,12 @@ export default function Patients() {
   useEffect(() => { load(); }, []);
 
   const filtered = patients.filter(p => {
-    const matchSearch = p.full_name?.toLowerCase().includes(search.toLowerCase()) ||
-      p.phone?.includes(search) || p.email?.toLowerCase().includes(search.toLowerCase());
+    const q = search.toLowerCase();
+    const matchSearch = !search ||
+      p.full_name?.toLowerCase().includes(q) ||
+      p.phone?.includes(search) ||
+      p.email?.toLowerCase().includes(q) ||
+      (p.tags || []).some(t => t.toLowerCase().includes(q));
     const matchStatus = statusFilter === "todos" || p.status === statusFilter;
     return matchSearch && matchStatus;
   });
@@ -110,6 +114,14 @@ export default function Patients() {
               <div className="space-y-1.5 mb-4">
                 {p.phone && <p className="text-sm text-gray-500 flex items-center gap-2"><Phone className="w-3.5 h-3.5" />{p.phone}</p>}
                 {p.next_appointment && <p className="text-xs text-gray-400">Próxima consulta: {p.next_appointment}</p>}
+                {p.tags && p.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    {p.tags.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 border border-gray-200">{tag}</span>
+                    ))}
+                    {p.tags.length > 3 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">+{p.tags.length - 3}</span>}
+                  </div>
+                )}
               </div>
               <div className="flex gap-2">
                 <Link

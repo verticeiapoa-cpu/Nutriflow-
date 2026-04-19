@@ -1,17 +1,34 @@
 import { useState } from "react";
 import { db as base44 } from "@/api/localDB";
-import { X, Plus, Trash2 } from "lucide-react";
+import { X, Plus, Trash2, Tag } from "lucide-react";
+
+const TAG_COLORS = [
+  "bg-green-100 text-green-700 border-green-200",
+  "bg-blue-100 text-blue-700 border-blue-200",
+  "bg-purple-100 text-purple-700 border-purple-200",
+  "bg-amber-100 text-amber-700 border-amber-200",
+  "bg-rose-100 text-rose-700 border-rose-200",
+  "bg-teal-100 text-teal-700 border-teal-200",
+];
+
+const TAG_SUGESTOES = [
+  "Diabético(a)", "Hipertenso(a)", "Vegano(a)", "Vegetariano(a)",
+  "Atleta", "Grávida", "Lactante", "Idoso(a)", "Criança",
+  "Intolerante à lactose", "Celíaco(a)", "Cardíaco(a)",
+  "Dislipidemia", "Hipotireoidismo", "SOP", "Ansiedade",
+];
 
 export default function PatientForm({ patient, onClose, onSave }) {
   const [form, setForm] = useState(patient || {
     full_name: "", birth_date: "", gender: "", phone: "", email: "",
     address: "", objective: "", status: "novo", anamnesis: "", notes: "",
-    allergies: [], medications: [], diseases: [], next_appointment: ""
+    allergies: [], medications: [], diseases: [], tags: [], next_appointment: ""
   });
   const [loading, setLoading] = useState(false);
   const [newAllergy, setNewAllergy] = useState("");
   const [newMedication, setNewMedication] = useState("");
   const [newDisease, setNewDisease] = useState("");
+  const [newTag, setNewTag] = useState("");
 
   const set = (key, value) => setForm(f => ({ ...f, [key]: value }));
 
@@ -139,6 +156,47 @@ export default function PatientForm({ patient, onClose, onSave }) {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Tags */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide flex items-center gap-1.5">
+              <Tag className="w-4 h-4" /> Tags do Paciente
+            </h3>
+            <div className="flex gap-2 mb-2">
+              <input
+                value={newTag}
+                onChange={e => setNewTag(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && addToArray("tags", newTag, setNewTag)}
+                placeholder="Adicionar tag personalizada..."
+                list="tag-sugestoes"
+                className="flex-1 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+              <datalist id="tag-sugestoes">
+                {TAG_SUGESTOES.map(s => <option key={s} value={s} />)}
+              </datalist>
+              <button onClick={() => addToArray("tags", newTag, setNewTag)}
+                className="px-3 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors">
+                <Plus className="w-4 h-4" />
+              </button>
+            </div>
+            {/* Sugestões rápidas */}
+            <div className="flex flex-wrap gap-1.5 mb-2">
+              {TAG_SUGESTOES.filter(s => !(form.tags||[]).includes(s)).slice(0, 8).map(s => (
+                <button key={s} onClick={() => setForm(f => ({ ...f, tags: [...(f.tags||[]), s] }))}
+                  className="text-xs px-2.5 py-1 rounded-full border border-dashed border-gray-300 text-gray-500 hover:border-green-400 hover:text-green-700 transition-colors">
+                  + {s}
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {(form.tags || []).map((tag, i) => (
+                <span key={i} className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border ${TAG_COLORS[i % TAG_COLORS.length]}`}>
+                  {tag}
+                  <button onClick={() => removeFromArray("tags", i)}><X className="w-3 h-3 hover:text-red-600" /></button>
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Anamnesis */}

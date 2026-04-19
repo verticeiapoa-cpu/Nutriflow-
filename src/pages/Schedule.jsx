@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { db as base44 } from "@/api/localDB";
-import { Plus, ChevronLeft, ChevronRight, Calendar, MessageCircle, Check, X, LayoutGrid, List, ClipboardList } from "lucide-react";
+import { Plus, ChevronLeft, ChevronRight, Calendar, MessageCircle, Check, X, LayoutGrid, List, ClipboardList, Ban } from "lucide-react";
 import {
   format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay,
   addMonths, subMonths, startOfWeek, endOfWeek, addWeeks, subWeeks,
@@ -30,6 +30,10 @@ export default function Schedule() {
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState("month"); // "month" | "week"
   const [weekStart, setWeekStart] = useState(startOfWeek(new Date(), { weekStartsOn: 1 }));
+  const [showBloquear, setShowBloquear] = useState(false);
+  const [bloqueioData, setBloqueioData] = useState("");
+  const [bloqueioMotivo, setBloqueioMotivo] = useState("");
+  const [datasBlockeadas, setDatasBlockeadas] = useState([]);
 
   const load = async () => {
     const [c, p] = await Promise.all([
@@ -39,6 +43,27 @@ export default function Schedule() {
     setConsultations(c);
     setPatients(p);
     setLoading(false);
+    loadBloqueios();
+  };
+
+  const loadBloqueios = async () => {
+    const db2 = await import("@/api/localDB").then(m => m.db);
+    const data = await db2.entities.DataBloqueada.list("-created_date", 100);
+    setDatasBlockeadas(data);
+  };
+
+  const salvarBloqueio = async () => {
+    if (!bloqueioData) return;
+    const db2 = await import("@/api/localDB").then(m => m.db);
+    await db2.entities.DataBloqueada.create({ data: bloqueioData, motivo: bloqueioMotivo });
+    setBloqueioData(""); setBloqueioMotivo("");
+    loadBloqueios();
+  };
+
+  const desbloquearData = async (id) => {
+    const db2 = await import("@/api/localDB").then(m => m.db);
+    await db2.entities.DataBloqueada.delete(id);
+    loadBloqueios();
   };
 
   useEffect(() => { load(); }, []);
@@ -53,6 +78,8 @@ export default function Schedule() {
     const ds = format(day, "yyyy-MM-dd");
     return consultations.some(c => c.date === ds);
   };
+
+  const isBlocked = (day) => datasBlockeadas.some(d => d.data === format(day, "yyyy-MM-dd"));
 
   const getConsultationsForCell = (day, hour) => {
     const ds = format(day, "yyyy-MM-dd");
@@ -152,6 +179,12 @@ export default function Schedule() {
             </button>
           </div>
           <button
+            onClick={() => setShowBloquear(true)}
+            className="flex items-center gap-2 border border-gray-200 text-gray-600 px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors"
+          >
+            <Ban className="w-4 h-4" /> Bloquear Data
+          </button>
+          <button
             onClick={() => { setEditingConsultation(null); setShowForm(true); }}
             className="flex items-center gap-2 bg-green-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-green-700 transition-colors"
           >
@@ -193,6 +226,7 @@ export default function Schedule() {
                     className={`relative aspect-square flex flex-col items-center justify-center rounded-xl text-sm transition-all ${
                       isSelected ? "bg-green-600 text-white font-semibold" :
                       isToday ? "bg-green-50 text-green-700 font-semibold" :
+                      isBlocked(day) ? "bg-red-50 text-red-400 line-through" :
                       "hover:bg-gray-50 text-gray-700"
                     }`}
                   >
@@ -308,6 +342,72 @@ export default function Schedule() {
           onClose={() => setShowForm(false)}
           onSave={() => { load(); setShowForm(false); }}
         />
+      )}
+
+      {showBloquear && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-bold text-gray-900">Bloquear Data</h3>
+              <button onClick={() => setShowBloquear(false)} className="text-gray-400 hover:text-gray-600">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Data</label>
+                <input
+                  type="date"
+                  value={bloqueioData}
+                  onChange={e => setBloqueioData(e.target.value)}
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Motivo (opcional)</label>
+                <input
+                  type="text"
+                  value={bloqueioMotivo}
+                  onChange={e => setBloqueioMotivo(e.target.value)}
+                  placeholder="Ex: Feriado, Viagem, Congresso..."
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={salvarBloqueio}
+                  className="flex-1 flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-green-700 transition-colors"
+                >
+                  Bloquear
+                </button>
+                <button
+                  onClick={() => setShowBloquear(false)}
+                  className="flex items-center gap-2 border border-gray-200 text-gray-600 px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors"
+                >
+                  Cancelar
+                </button>
+              </div>
+              {datasBlockeadas.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold text-gray-400 mb-2">DATAS BLOQUEADAS</p>
+                  <div className="space-y-1 max-h-40 overflow-y-auto">
+                    {datasBlockeadas.map(d => (
+                      <div key={d.id} className="flex items-center justify-between bg-red-50 rounded-lg px-3 py-2">
+                        <div>
+                          <span className="text-sm font-medium text-red-700">{d.data}</span>
+                          {d.motivo && <span className="text-xs text-red-400 ml-2">— {d.motivo}</span>}
+                        </div>
+                        <button onClick={() => desbloquearData(d.id)} className="text-red-400 hover:text-red-600">
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
