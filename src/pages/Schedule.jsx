@@ -47,22 +47,19 @@ export default function Schedule() {
   };
 
   const loadBloqueios = async () => {
-    const db2 = await import("@/api/localDB").then(m => m.db);
-    const data = await db2.entities.DataBloqueada.list("-created_date", 100);
+    const data = await base44.entities.DataBloqueada.list("-created_date", 100);
     setDatasBlockeadas(data);
   };
 
   const salvarBloqueio = async () => {
     if (!bloqueioData) return;
-    const db2 = await import("@/api/localDB").then(m => m.db);
-    await db2.entities.DataBloqueada.create({ data: bloqueioData, motivo: bloqueioMotivo });
+    await base44.entities.DataBloqueada.create({ data: bloqueioData, motivo: bloqueioMotivo });
     setBloqueioData(""); setBloqueioMotivo("");
     loadBloqueios();
   };
 
   const desbloquearData = async (id) => {
-    const db2 = await import("@/api/localDB").then(m => m.db);
-    await db2.entities.DataBloqueada.delete(id);
+    await base44.entities.DataBloqueada.delete(id);
     loadBloqueios();
   };
 
