@@ -1,191 +1,276 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* ── Fontes: DM Sans (corpo) + Fraunces (display/logo) ── */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── Design Tokens — Paleta de Autoridade Clínica ── */
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Off-white clínico */
+    --background: 210 17% 98%;
     --foreground: 222 20% 10%;
+
+    /* Card = white puro */
     --card: 0 0% 100%;
     --card-foreground: 222 20% 10%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 222 20% 10%;
-    --primary: 142 76% 36%;
+
+    /* Primária: Verde Sálvia Profundo #2D4F4F */
+    --primary: 180 28% 24%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 210 20% 96%;
+
+    /* Secundária: off-white */
+    --secondary: 210 17% 96%;
     --secondary-foreground: 222 20% 10%;
-    --muted: 210 20% 96%;
+
+    /* Muted */
+    --muted: 210 17% 96%;
     --muted-foreground: 215 16% 47%;
-    --accent: 210 20% 96%;
-    --accent-foreground: 222 20% 10%;
+
+    /* Acento: Ardósia #64748B */
+    --accent: 215 16% 47%;
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 142 76% 36%;
-    --chart-1: 142 76% 36%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+
+    /* Ring = primária */
+    --ring: 180 28% 24%;
+
+    /* Charts: sucesso #1D9E75 mantido */
+    --chart-1: 162 70% 37%;
     --chart-2: 200 95% 48%;
     --chart-3: 262 83% 58%;
     --chart-4: 38 92% 50%;
     --chart-5: 0 84% 60%;
-    --radius: 0.75rem;
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 20% 32%;
-    --sidebar-primary: 142 76% 36%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 142 76% 97%;
-    --sidebar-accent-foreground: 142 76% 28%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 142 76% 36%;
 
-    /* Design tokens */
-    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
-    --card-shadow-hover: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
-    --card-shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 4px 10px -5px rgb(0 0 0 / 0.06);
+    /* Border-radius base = 12px */
+    --radius: 0.75rem;
+
+    /* Sidebar tokens (agora escura) */
+    --sidebar-background: 180 28% 24%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 162 70% 37%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 180 20% 20%;
+    --sidebar-ring: 162 70% 37%;
+
+    /* Shadows semânticas */
+    --shadow-card:       0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+    --shadow-card-hover: 0 4px 12px -2px rgb(0 0 0 / 0.09), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+    --shadow-card-lg:    0 10px 24px -4px rgb(0 0 0 / 0.08), 0 4px 8px -4px rgb(0 0 0 / 0.05);
+    --shadow-topbar:     0 1px 0 0 rgb(0 0 0 / 0.06);
+
+    /* Paleta nomeada para uso direto */
+    --color-primary:  #2D4F4F;
+    --color-success:  #1D9E75;
+    --color-accent:   #64748B;
+    --color-bg:       #F8F9FA;
   }
 }
 
+/* ── Reset & base ── */
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
   html {
-    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    @apply bg-[#F8FAFB] text-foreground;
+    background-color: #F8F9FA;
+    color: hsl(var(--foreground));
     font-feature-settings: "cv11", "ss01";
   }
 
+  /* Títulos: DM Sans weight 500 */
   h1, h2, h3, h4, h5 {
-    font-family: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
     letter-spacing: -0.02em;
   }
 
+  /* Display/logo: Fraunces */
   .font-display {
     font-family: 'Fraunces', Georgia, serif;
   }
 }
 
-/* ─── Scrollbar personalizada ─── */
-::-webkit-scrollbar { width: 5px; height: 5px; }
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
-/* ─── Cards ─── */
+/* ─────────────────────────────────────────────
+   COMPONENTES
+───────────────────────────────────────────── */
 @layer components {
+
+  /* ─── Cards: sem borda, shadow-sm, radius 12px ─── */
   .card {
-    @apply bg-white rounded-2xl border border-[#E2E8F0];
-    box-shadow: var(--card-shadow);
-    transition: box-shadow 180ms ease, transform 180ms ease;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 180ms ease;
   }
 
   .card:hover {
-    box-shadow: var(--card-shadow-hover);
+    box-shadow: var(--shadow-card-hover);
   }
 
   .card-lg {
-    @apply bg-white rounded-2xl border border-[#E2E8F0] p-6;
-    box-shadow: var(--card-shadow);
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
   }
 
-  /* ─── Badges modernas (10% opacity bg) ─── */
+  .card-flat {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* ─── Badges ─── */
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold;
   }
-  .badge-green  { @apply bg-green-500/10  text-green-700;  }
+  .badge-green  { background: rgb(29 158 117 / 0.12); color: #0F6E56; }
   .badge-blue   { @apply bg-blue-500/10   text-blue-700;   }
   .badge-amber  { @apply bg-amber-500/10  text-amber-700;  }
   .badge-red    { @apply bg-red-500/10    text-red-700;    }
   .badge-purple { @apply bg-purple-500/10 text-purple-700; }
   .badge-gray   { @apply bg-gray-500/10   text-gray-600;   }
+  .badge-slate  { background: rgb(100 116 139 / 0.12); color: #475569; }
 
-  /* ─── Inputs modernos ─── */
+  /* ─── Inputs ─── */
   .input-modern {
     @apply w-full border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm bg-white
-           placeholder:text-gray-400
-           focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-500
-           transition-all duration-150;
+           placeholder:text-gray-400 transition-all duration-150;
+    font-weight: 400;
+  }
+  .input-modern:focus {
+    outline: none;
+    border-color: #2D4F4F;
+    box-shadow: 0 0 0 3px rgb(45 79 79 / 0.12);
   }
 
-  /* ─── Botão primário ─── */
+  /* ─── Botão primário — Verde Sálvia Profundo ─── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-green-600 hover:bg-green-700
-           active:scale-[0.98] text-white px-4 py-2.5 rounded-xl text-sm font-semibold
+    @apply inline-flex items-center gap-2 active:scale-[0.98] text-white
+           px-4 py-2.5 rounded-xl text-sm font-semibold
            transition-all duration-150 shadow-sm;
+    background: #2D4F4F;
   }
+  .btn-primary:hover { background: #3a6464; }
 
+  /* ─── Botão ghost ─── */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 bg-white hover:bg-gray-50 border border-[#E2E8F0]
-           active:scale-[0.98] text-gray-700 px-4 py-2.5 rounded-xl text-sm font-semibold
+    @apply inline-flex items-center gap-2 bg-white hover:bg-gray-50
+           active:scale-[0.98] text-gray-700
+           px-4 py-2.5 rounded-xl text-sm font-semibold
            transition-all duration-150;
+    border: 1px solid hsl(var(--border));
   }
 
-  /* ─── Stat card accent line ─── */
+  /* ─── Botão sucesso (action CTA verde #1D9E75) ─── */
+  .btn-success {
+    @apply inline-flex items-center gap-2 active:scale-[0.98] text-white
+           px-4 py-2.5 rounded-xl text-sm font-semibold
+           transition-all duration-150 shadow-sm;
+    background: #1D9E75;
+  }
+  .btn-success:hover { background: #189060; }
+
+  /* ─── Stat card (accent line no topo) ─── */
   .stat-card {
     @apply card p-5 relative overflow-hidden;
   }
-
   .stat-card::before {
     content: '';
-    @apply absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl;
+    @apply absolute top-0 left-0 right-0 h-[3px];
+    border-radius: 12px 12px 0 0;
   }
-
-  .stat-card-green::before  { @apply bg-gradient-to-r from-green-400 to-emerald-500; }
+  .stat-card-green::before  { @apply bg-gradient-to-r from-emerald-400 to-teal-500; }
   .stat-card-blue::before   { @apply bg-gradient-to-r from-blue-400 to-cyan-500; }
   .stat-card-purple::before { @apply bg-gradient-to-r from-purple-400 to-violet-500; }
   .stat-card-amber::before  { @apply bg-gradient-to-r from-amber-400 to-orange-500; }
+  .stat-card-slate::before  { background: linear-gradient(90deg, #64748B, #94A3B8); }
 
   /* ─── Sidebar nav item ─── */
+  /* Versão clara (mobile / contexto fora do sidebar escuro) */
   .nav-item {
+    @apply relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           transition-all duration-150 cursor-pointer;
+    color: rgba(255,255,255,0.70);
+  }
+  .nav-item:hover {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.95);
+  }
+
+  /* Item ativo no sidebar escuro */
+  .nav-item-active {
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+  }
+  .nav-item-active::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full;
+    background: #1D9E75;
+  }
+
+  /* Variante clara (para mobile overlay se necessário) */
+  .nav-item-light {
     @apply relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
            text-gray-500 hover:text-gray-800 hover:bg-gray-50
            transition-all duration-150 cursor-pointer;
   }
-
-  .nav-item-active {
+  .nav-item-light-active {
     color: #0F6E56;
     background-color: #E1F5EE;
   }
-
-  .nav-item-active::before {
+  .nav-item-light-active::before {
     content: '';
     @apply absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full;
-    background-color: #1D9E75;
+    background: #1D9E75;
   }
-
-  /* ─── Focus mode ─── */
-  .sidebar-collapsed .sidebar-label { @apply hidden; }
-  .sidebar-collapsed .sidebar-section-title { @apply hidden; }
 
   /* ─── Page header ─── */
   .page-header {
     @apply flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6;
   }
-
-  .page-title { @apply text-[22px] font-bold text-gray-900 tracking-tight; }
+  .page-title { font-size: 1.25rem; font-weight: 600; color: #111827; letter-spacing: -0.02em; }
   .page-sub   { @apply text-sm text-gray-500 mt-0.5; }
 }
 
-/* ─── Animações suaves ─── */
+/* ─── Animações ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.fade-up { animation: fadeUp 220ms ease forwards; }
 
-.fade-up {
-  animation: fadeUp 220ms ease forwards;
+/* ─── Chart gradient ─── */
+.chart-gradient-sage {
+  background: linear-gradient(180deg, rgba(45,79,79,0.15) 0%, rgba(45,79,79,0) 100%);
 }
-
-/* ─── Gráfico gradiente (Chart.js) ─── */
 .chart-gradient-green {
-  background: linear-gradient(180deg, rgba(22,163,74,0.18) 0%, rgba(22,163,74,0) 100%);
+  background: linear-gradient(180deg, rgba(29,158,117,0.18) 0%, rgba(29,158,117,0) 100%);
 }
