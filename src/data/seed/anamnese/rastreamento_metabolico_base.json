@@ -1,0 +1,106 @@
+{
+  "id": "seed_anamnese_rastreamento",
+  "titulo": "Rastreamento Metabólico Base",
+  "versao": "1.0",
+  "descricao": "Formulário completo de rastreamento metabólico para primeira consulta",
+  "secoes": [
+    {
+      "id": "energia",
+      "titulo": "Energia e Disposição",
+      "campos": [
+        { "id": "nivel_energia", "label": "Nível de energia ao longo do dia", "tipo": "escala", "min": 1, "max": 10, "descricao": "1 = muito baixo, 10 = excelente" },
+        { "id": "cansaco_matinal", "label": "Acorda cansado(a)?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "hipoglicemia", "label": "Sente queda de energia após refeições?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "queda_tarde", "label": "Sente queda de energia à tarde (13h–15h)?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] }
+      ]
+    },
+    {
+      "id": "digestao",
+      "titulo": "Digestão e Intestino",
+      "campos": [
+        { "id": "frequencia_intestinal", "label": "Frequência evacuatória", "tipo": "opcoes", "opcoes": ["Mais de 2x/dia", "1–2x/dia", "A cada 2 dias", "2–3x/semana", "Menos de 2x/semana"] },
+        { "id": "consistencia_fezes", "label": "Consistência das fezes (Escala Bristol)", "tipo": "opcoes", "opcoes": ["Tipo 1 – Caprino", "Tipo 2 – Salsicha dura", "Tipo 3 – Salsicha com fissuras", "Tipo 4 – Salsicha suave", "Tipo 5 – Pedaços macios", "Tipo 6 – Pastoso", "Tipo 7 – Líquido"] },
+        { "id": "distensao", "label": "Sente inchaço / distensão abdominal?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "gases", "label": "Flatulência excessiva?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "refluxo", "label": "Azia ou refluxo?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "nauseas", "label": "Náuseas ou enjoos?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] }
+      ]
+    },
+    {
+      "id": "sono",
+      "titulo": "Sono e Descanso",
+      "campos": [
+        { "id": "horas_sono", "label": "Horas de sono por noite", "tipo": "numero", "unidade": "horas", "min": 0, "max": 24 },
+        { "id": "qualidade_sono", "label": "Qualidade do sono", "tipo": "escala", "min": 1, "max": 10 },
+        { "id": "dificuldade_dormir", "label": "Dificuldade para dormir?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "acorda_noite", "label": "Acorda durante a noite?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "apneia", "label": "Diagnóstico de apneia do sono?", "tipo": "opcoes", "opcoes": ["Não", "Suspeita", "Sim, em tratamento", "Sim, sem tratamento"] }
+      ]
+    },
+    {
+      "id": "humor",
+      "titulo": "Humor e Cognição",
+      "campos": [
+        { "id": "ansiedade", "label": "Nível de ansiedade", "tipo": "escala", "min": 1, "max": 10 },
+        { "id": "compulsao_alimentar", "label": "Episódios de compulsão alimentar?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente (1–2x/mês)", "Às vezes (1–2x/semana)", "Frequentemente (3–5x/semana)", "Diariamente"] },
+        { "id": "desejo_doce", "label": "Desejo intenso por doces ou carboidratos?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "concentracao", "label": "Dificuldade de concentração?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "memoria", "label": "Falhas de memória?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] }
+      ]
+    },
+    {
+      "id": "inflamacao",
+      "titulo": "Sinais de Inflamação",
+      "campos": [
+        { "id": "dores_articulares", "label": "Dores articulares ou musculares?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "cefaleia", "label": "Frequência de dores de cabeça", "tipo": "opcoes", "opcoes": ["Nunca", "1–2x/mês", "1–2x/semana", "Quase diário", "Diário"] },
+        { "id": "alergias", "label": "Alergias alimentares confirmadas?", "tipo": "texto_multiplo", "placeholder": "Ex: glúten, lactose, frutos do mar..." },
+        { "id": "intolerancia", "label": "Intolerâncias alimentares suspeitas?", "tipo": "texto_multiplo", "placeholder": "Ex: laticínios, ovo, trigo..." },
+        { "id": "pele", "label": "Problemas de pele (acne, eczema, psoríase)?", "tipo": "opcoes", "opcoes": ["Nenhum", "Leve", "Moderado", "Grave"] }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Hábitos Alimentares",
+      "campos": [
+        { "id": "num_refeicoes", "label": "Número de refeições por dia", "tipo": "numero", "min": 1, "max": 10 },
+        { "id": "pula_refeicoes", "label": "Pula refeições com frequência?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "come_noite", "label": "Come tarde da noite (após 21h)?", "tipo": "opcoes", "opcoes": ["Nunca", "Raramente", "Às vezes", "Frequentemente", "Sempre"] },
+        { "id": "agua_ml", "label": "Ingestão hídrica diária estimada (ml)", "tipo": "numero", "unidade": "ml", "min": 0, "max": 5000 },
+        { "id": "alcool", "label": "Consumo de álcool", "tipo": "opcoes", "opcoes": ["Nunca", "Eventualmente (festas)", "1–2x/semana", "3–5x/semana", "Diário"] },
+        { "id": "cafe", "label": "Consumo de café/cafeína por dia", "tipo": "opcoes", "opcoes": ["Nenhum", "1 xícara", "2–3 xícaras", "4–5 xícaras", "Mais de 5"] }
+      ]
+    },
+    {
+      "id": "atividade_fisica",
+      "titulo": "Atividade Física",
+      "campos": [
+        { "id": "tipo_atividade", "label": "Tipo de atividade física praticada", "tipo": "texto_multiplo", "placeholder": "Ex: musculação, caminhada, yoga..." },
+        { "id": "frequencia_treino", "label": "Frequência semanal de treinos", "tipo": "opcoes", "opcoes": ["Sedentário", "1–2x/semana", "3–4x/semana", "5–6x/semana", "Diário"] },
+        { "id": "duracao_treino", "label": "Duração média por sessão", "tipo": "opcoes", "opcoes": ["< 30 min", "30–45 min", "45–60 min", "60–90 min", "> 90 min"] },
+        { "id": "objetivo_treino", "label": "Objetivo do treino", "tipo": "opcoes", "opcoes": ["Saúde geral", "Emagrecimento", "Hipertrofia", "Resistência", "Reabilitação", "Outro"] }
+      ]
+    },
+    {
+      "id": "historico",
+      "titulo": "Histórico de Saúde",
+      "campos": [
+        { "id": "doencas_cronicas", "label": "Doenças crônicas diagnosticadas", "tipo": "texto_multiplo", "placeholder": "Ex: diabetes tipo 2, hipertensão, hipotireoidismo..." },
+        { "id": "medicamentos", "label": "Medicamentos em uso contínuo", "tipo": "texto_multiplo", "placeholder": "Nome, dose e frequência" },
+        { "id": "suplementos", "label": "Suplementos em uso", "tipo": "texto_multiplo", "placeholder": "Ex: vitamina D, magnésio, colágeno..." },
+        { "id": "cirurgias", "label": "Cirurgias prévias relevantes", "tipo": "texto_multiplo" },
+        { "id": "historico_familiar", "label": "Histórico familiar relevante", "tipo": "texto_multiplo", "placeholder": "Ex: DM2 materno, DCV paterno..." }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "titulo": "Objetivos e Expectativas",
+      "campos": [
+        { "id": "objetivo_principal", "label": "Objetivo principal do acompanhamento", "tipo": "texto_longo" },
+        { "id": "tentativas_anteriores", "label": "Já fez dieta ou acompanhamento nutricional antes?", "tipo": "opcoes", "opcoes": ["Não", "Sim, sem sucesso", "Sim, com sucesso parcial", "Sim, com bom resultado"] },
+        { "id": "disponibilidade_cozinha", "label": "Disponibilidade para cozinhar", "tipo": "opcoes", "opcoes": ["Não cozinha", "Raramente", "Fins de semana", "Alguns dias", "Todos os dias"] },
+        { "id": "observacoes", "label": "Observações adicionais", "tipo": "texto_longo" }
+      ]
+    }
+  ]
+}

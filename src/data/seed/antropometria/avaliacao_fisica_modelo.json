@@ -1,0 +1,105 @@
+{
+  "id": "seed_antro_modelo",
+  "titulo": "Avaliação Física Completa",
+  "versao": "1.0",
+  "descricao": "Protocolo completo de avaliação antropométrica e composição corporal",
+  "protocolos_dobras": ["Pollock 7 dobras", "Pollock 3 dobras (♂)", "Pollock 3 dobras (♀)", "Faulkner", "Durnin & Womersley"],
+  "protocolo_padrao": "Pollock 7 dobras",
+  "secoes": [
+    {
+      "id": "dados_basicos",
+      "titulo": "Dados Básicos",
+      "campos": [
+        { "id": "data_avaliacao", "label": "Data da avaliação", "tipo": "data" },
+        { "id": "peso", "label": "Peso corporal", "tipo": "numero", "unidade": "kg", "casas_decimais": 1 },
+        { "id": "estatura", "label": "Estatura", "tipo": "numero", "unidade": "cm", "casas_decimais": 1 },
+        { "id": "imc", "label": "IMC (calculado)", "tipo": "calculado", "formula": "peso / (estatura/100)^2" },
+        { "id": "idade", "label": "Idade", "tipo": "numero", "unidade": "anos" },
+        { "id": "sexo", "label": "Sexo biológico", "tipo": "opcoes", "opcoes": ["Masculino", "Feminino"] }
+      ]
+    },
+    {
+      "id": "circunferencias",
+      "titulo": "Circunferências (cm)",
+      "campos": [
+        { "id": "cintura", "label": "Cintura", "tipo": "numero", "unidade": "cm", "referencia": "Homem < 94 cm · Mulher < 80 cm (OMS)" },
+        { "id": "quadril", "label": "Quadril", "tipo": "numero", "unidade": "cm" },
+        { "id": "rcq", "label": "RCQ (calculada)", "tipo": "calculado", "formula": "cintura / quadril", "referencia": "Homem < 0,90 · Mulher < 0,85" },
+        { "id": "abdominal", "label": "Abdominal (2 cm acima da cicatriz)", "tipo": "numero", "unidade": "cm" },
+        { "id": "braco_relaxado", "label": "Braço relaxado (D)", "tipo": "numero", "unidade": "cm" },
+        { "id": "braco_contraido", "label": "Braço contraído (D)", "tipo": "numero", "unidade": "cm" },
+        { "id": "antebraco", "label": "Antebraço (D)", "tipo": "numero", "unidade": "cm" },
+        { "id": "panturrilha", "label": "Panturrilha (D)", "tipo": "numero", "unidade": "cm" },
+        { "id": "coxa_proximal", "label": "Coxa proximal (D)", "tipo": "numero", "unidade": "cm" },
+        { "id": "coxa_medial", "label": "Coxa medial (D)", "tipo": "numero", "unidade": "cm" },
+        { "id": "torax", "label": "Tórax", "tipo": "numero", "unidade": "cm" }
+      ]
+    },
+    {
+      "id": "dobras_cutaneas",
+      "titulo": "Dobras Cutâneas (mm) — Pollock 7",
+      "campos": [
+        { "id": "subescapular", "label": "Subescapular", "tipo": "numero", "unidade": "mm" },
+        { "id": "triceps", "label": "Tríceps", "tipo": "numero", "unidade": "mm" },
+        { "id": "peitoral", "label": "Peitoral", "tipo": "numero", "unidade": "mm" },
+        { "id": "axilar_media", "label": "Axilar média", "tipo": "numero", "unidade": "mm" },
+        { "id": "suprailiaca", "label": "Suprailíaca", "tipo": "numero", "unidade": "mm" },
+        { "id": "abdominal_dc", "label": "Abdominal", "tipo": "numero", "unidade": "mm" },
+        { "id": "coxa_dc", "label": "Coxa", "tipo": "numero", "unidade": "mm" },
+        { "id": "soma_7_dobras", "label": "Σ 7 dobras (calculada)", "tipo": "calculado" }
+      ]
+    },
+    {
+      "id": "composicao_corporal",
+      "titulo": "Composição Corporal",
+      "campos": [
+        { "id": "gordura_pct", "label": "% Gordura corporal", "tipo": "numero", "unidade": "%", "casas_decimais": 1 },
+        { "id": "massa_gordura_kg", "label": "Massa gorda (kg)", "tipo": "calculado" },
+        { "id": "massa_magra_kg", "label": "Massa livre de gordura (kg)", "tipo": "calculado" },
+        { "id": "massa_muscular_kg", "label": "Massa muscular estimada (kg)", "tipo": "numero", "casas_decimais": 1 },
+        { "id": "agua_corporal_pct", "label": "Água corporal (%)", "tipo": "numero", "unidade": "%" },
+        { "id": "gordura_visceral", "label": "Gordura visceral (índice BIA)", "tipo": "numero" },
+        { "id": "densidade_corporal", "label": "Densidade corporal (g/mL)", "tipo": "calculado" }
+      ]
+    },
+    {
+      "id": "classificacoes",
+      "titulo": "Classificações e Referências",
+      "referencias_gordura": {
+        "homem": [
+          { "faixa": "Muito baixo", "min": 0, "max": 5 },
+          { "faixa": "Essencial", "min": 2, "max": 5 },
+          { "faixa": "Atleta", "min": 6, "max": 13 },
+          { "faixa": "Boa forma", "min": 14, "max": 17 },
+          { "faixa": "Aceitável", "min": 18, "max": 24 },
+          { "faixa": "Obeso", "min": 25, "max": 100 }
+        ],
+        "mulher": [
+          { "faixa": "Essencial", "min": 10, "max": 13 },
+          { "faixa": "Atleta", "min": 14, "max": 20 },
+          { "faixa": "Boa forma", "min": 21, "max": 24 },
+          { "faixa": "Aceitável", "min": 25, "max": 31 },
+          { "faixa": "Obeso", "min": 32, "max": 100 }
+        ]
+      },
+      "referencias_imc": [
+        { "faixa": "Baixo peso", "min": 0, "max": 18.4 },
+        { "faixa": "Eutrófico", "min": 18.5, "max": 24.9 },
+        { "faixa": "Sobrepeso", "min": 25, "max": 29.9 },
+        { "faixa": "Obesidade I", "min": 30, "max": 34.9 },
+        { "faixa": "Obesidade II", "min": 35, "max": 39.9 },
+        { "faixa": "Obesidade III", "min": 40, "max": 999 }
+      ]
+    },
+    {
+      "id": "meta",
+      "titulo": "Metas Corporais",
+      "campos": [
+        { "id": "peso_meta", "label": "Peso meta", "tipo": "numero", "unidade": "kg" },
+        { "id": "gordura_meta_pct", "label": "% Gordura meta", "tipo": "numero", "unidade": "%" },
+        { "id": "prazo_meses", "label": "Prazo estimado", "tipo": "numero", "unidade": "meses" },
+        { "id": "observacoes", "label": "Observações do avaliador", "tipo": "texto_longo" }
+      ]
+    }
+  ]
+}

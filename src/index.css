@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -53,7 +53,7 @@
   }
 
   html {
-    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -65,8 +65,12 @@
   }
 
   h1, h2, h3, h4, h5 {
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
     letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
   }
 }
 
@@ -148,12 +152,14 @@
   }
 
   .nav-item-active {
-    @apply text-green-700 bg-green-50;
+    color: #0F6E56;
+    background-color: #E1F5EE;
   }
 
   .nav-item-active::before {
     content: '';
-    @apply absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-green-600 rounded-r-full;
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full;
+    background-color: #1D9E75;
   }
 
   /* ─── Focus mode ─── */

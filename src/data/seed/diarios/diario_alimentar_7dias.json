@@ -1,0 +1,390 @@
+{
+  "id": "seed_diario_7dias",
+  "titulo": "Diário Alimentar — Modelo 7 Dias",
+  "descricao": "Estrutura de diário alimentar para 7 dias com campos completos de registro",
+  "versao": "1.0",
+  "instrucoes": "Registre tudo que consumir, incluindo pequenos petiscos, bebidas e temperos. Seja honesto — isso ajuda a identificar padrões.",
+  "campos_por_dia": [
+    "refeicao", "horario", "local", "alimentos", "quantidade", "preparo",
+    "fome_antes", "saciedade_depois", "humor", "notas"
+  ],
+  "dias": [
+    {
+      "dia": 1,
+      "dia_semana": "Segunda-feira",
+      "refeicoes": [
+        {
+          "refeicao": "Café da Manhã",
+          "horario": "07:30",
+          "local": "Em casa",
+          "fome_antes": 7,
+          "saciedade_depois": 8,
+          "humor": "Tranquilo",
+          "alimentos": [
+            { "descricao": "Tapioca de queijo e ovo", "quantidade": "1 unidade (100g)", "preparo": "Frigideira" },
+            { "descricao": "Suco de laranja natural", "quantidade": "200ml", "preparo": "Espremido" },
+            { "descricao": "Café com leite desnatado", "quantidade": "200ml", "preparo": "Coado" }
+          ],
+          "notas": ""
+        },
+        {
+          "refeicao": "Lanche da Manhã",
+          "horario": "10:15",
+          "local": "Trabalho",
+          "fome_antes": 5,
+          "saciedade_depois": 6,
+          "humor": "Ansioso",
+          "alimentos": [
+            { "descricao": "Castanha-do-pará", "quantidade": "2 unidades (10g)", "preparo": "In natura" },
+            { "descricao": "Banana nanica", "quantidade": "1 unidade (80g)", "preparo": "In natura" }
+          ],
+          "notas": "Comi mais rápido que o normal"
+        },
+        {
+          "refeicao": "Almoço",
+          "horario": "12:30",
+          "local": "Restaurante self-service",
+          "fome_antes": 8,
+          "saciedade_depois": 9,
+          "humor": "Normal",
+          "alimentos": [
+            { "descricao": "Arroz branco", "quantidade": "3 colheres de sopa cheias (150g)", "preparo": "Cozido" },
+            { "descricao": "Feijão carioca", "quantidade": "2 conchas pequenas (120g)", "preparo": "Cozido" },
+            { "descricao": "Frango assado sem pele", "quantidade": "1 pedaço médio (120g)", "preparo": "Assado" },
+            { "descricao": "Salada de folhas com tomate", "quantidade": "1 prato raso", "preparo": "Cru, temperado com azeite e sal" },
+            { "descricao": "Beterraba e cenoura raladas", "quantidade": "2 colheres de sopa", "preparo": "Crua" }
+          ],
+          "notas": ""
+        },
+        {
+          "refeicao": "Lanche da Tarde",
+          "horario": "16:00",
+          "local": "Trabalho",
+          "fome_antes": 6,
+          "saciedade_depois": 7,
+          "humor": "Cansado",
+          "alimentos": [
+            { "descricao": "Iogurte grego natural", "quantidade": "1 pote (170g)", "preparo": "Industrializado" },
+            { "descricao": "Granola", "quantidade": "2 colheres de sopa (30g)", "preparo": "Industrializada" }
+          ],
+          "notas": ""
+        },
+        {
+          "refeicao": "Jantar",
+          "horario": "20:00",
+          "local": "Em casa",
+          "fome_antes": 7,
+          "saciedade_depois": 8,
+          "humor": "Relaxado",
+          "alimentos": [
+            { "descricao": "Omelete de 3 ovos com queijo e tomate", "quantidade": "1 unidade", "preparo": "Frigideira com azeite" },
+            { "descricao": "Salada de pepino, rúcula e azeite", "quantidade": "1 prato", "preparo": "Cru" },
+            { "descricao": "Pão de forma integral", "quantidade": "1 fatia (25g)", "preparo": "Natural" }
+          ],
+          "notas": ""
+        }
+      ],
+      "agua_ml": 1800,
+      "atividade_fisica": "Caminhada 30 min",
+      "qualidade_sono_noite_anterior": 7,
+      "observacoes_dia": "Dia corrido, almoço no restaurante saiu do planejado"
+    },
+    {
+      "dia": 2,
+      "dia_semana": "Terça-feira",
+      "refeicoes": [
+        {
+          "refeicao": "Café da Manhã",
+          "horario": "07:00",
+          "local": "Em casa",
+          "fome_antes": 6,
+          "saciedade_depois": 8,
+          "humor": "Bem-disposto",
+          "alimentos": [
+            { "descricao": "Aveia em flocos", "quantidade": "4 colheres de sopa (50g)", "preparo": "Com leite desnatado morno" },
+            { "descricao": "Mel", "quantidade": "1 colher de chá (8g)", "preparo": "In natura" },
+            { "descricao": "Banana amassada", "quantidade": "1 unidade (80g)", "preparo": "In natura" },
+            { "descricao": "Café preto", "quantidade": "150ml", "preparo": "Coado sem açúcar" }
+          ],
+          "notas": "Dia de treino, café reforçado"
+        },
+        {
+          "refeicao": "Pré-Treino",
+          "horario": "16:30",
+          "local": "Em casa",
+          "fome_antes": 5,
+          "saciedade_depois": 6,
+          "humor": "Motivado",
+          "alimentos": [
+            { "descricao": "Batata-doce cozida", "quantidade": "150g", "preparo": "Cozida sem sal" },
+            { "descricao": "Frango desfiado", "quantidade": "80g", "preparo": "Cozido na pressão" }
+          ],
+          "notas": "45 min antes do treino"
+        },
+        {
+          "refeicao": "Pós-Treino",
+          "horario": "19:30",
+          "local": "Em casa",
+          "fome_antes": 9,
+          "saciedade_depois": 8,
+          "humor": "Exausto mas satisfeito",
+          "alimentos": [
+            { "descricao": "Whey protein sabor baunilha", "quantidade": "2 scoops (60g)", "preparo": "Batido com 300ml água" },
+            { "descricao": "Banana", "quantidade": "1 unidade grande", "preparo": "In natura" }
+          ],
+          "notas": "Tomei imediatamente após sair da academia"
+        },
+        {
+          "refeicao": "Jantar",
+          "horario": "21:00",
+          "local": "Em casa",
+          "fome_antes": 7,
+          "saciedade_depois": 9,
+          "humor": "Relaxado",
+          "alimentos": [
+            { "descricao": "Macarrão integral ao sugo com carne moída", "quantidade": "1 prato (300g)", "preparo": "Cozido al dente com molho caseiro" },
+            { "descricao": "Salada de folhas", "quantidade": "1 prato pequeno", "preparo": "Com limão" }
+          ],
+          "notas": ""
+        }
+      ],
+      "agua_ml": 2500,
+      "atividade_fisica": "Musculação 60 min (Peito e Tríceps)",
+      "qualidade_sono_noite_anterior": 8,
+      "observacoes_dia": "Treino pesado, boa recuperação esperada"
+    },
+    {
+      "dia": 3,
+      "dia_semana": "Quarta-feira",
+      "refeicoes": [
+        {
+          "refeicao": "Café da Manhã",
+          "horario": "08:00",
+          "local": "Em casa",
+          "fome_antes": 5,
+          "saciedade_depois": 7,
+          "humor": "Normal",
+          "alimentos": [
+            { "descricao": "Vitamina de frutas com leite", "quantidade": "300ml", "preparo": "Liquidificador: banana, morango, leite e mel" },
+            { "descricao": "Pão francês integral", "quantidade": "1 unidade (50g)", "preparo": "Com margarina light" }
+          ],
+          "notas": "Acelerado pela manhã"
+        }
+      ],
+      "agua_ml": 1600,
+      "atividade_fisica": "Descanso ativo (caminhada leve)",
+      "qualidade_sono_noite_anterior": 6,
+      "observacoes_dia": "Registros incompletos — saiu para compromissos. Almoço e jantar fora de casa sem anotação."
+    },
+    {
+      "dia": 4,
+      "dia_semana": "Quinta-feira",
+      "refeicoes": [
+        {
+          "refeicao": "Café da Manhã",
+          "horario": "07:15",
+          "local": "Em casa",
+          "fome_antes": 7,
+          "saciedade_depois": 9,
+          "humor": "Bem-disposto",
+          "alimentos": [
+            { "descricao": "Panqueca de aveia e banana (2 unidades)", "quantidade": "2 panquecas (120g)", "preparo": "Frigideira antiaderente" },
+            { "descricao": "Mel", "quantidade": "1 fio (10g)", "preparo": "In natura" },
+            { "descricao": "Café com canela", "quantidade": "200ml", "preparo": "Coado" }
+          ],
+          "notas": "Ficou muito gostoso, vou repetir"
+        },
+        {
+          "refeicao": "Almoço",
+          "horario": "12:00",
+          "local": "Em casa",
+          "fome_antes": 7,
+          "saciedade_depois": 8,
+          "humor": "Tranquilo",
+          "alimentos": [
+            { "descricao": "Arroz integral", "quantidade": "120g cozido", "preparo": "Cozido com alho" },
+            { "descricao": "Grão-de-bico assado com azeite e páprica", "quantidade": "100g", "preparo": "Forno 200°C por 25 min" },
+            { "descricao": "Filé de salmão grelhado", "quantidade": "140g", "preparo": "Limão e azeite, frigideira" },
+            { "descricao": "Abobrinha e berinjela refogadas", "quantidade": "150g", "preparo": "Alho e azeite" }
+          ],
+          "notas": "Melhor refeição da semana"
+        },
+        {
+          "refeicao": "Jantar",
+          "horario": "19:30",
+          "local": "Em casa",
+          "fome_antes": 6,
+          "saciedade_depois": 7,
+          "humor": "Relaxado",
+          "alimentos": [
+            { "descricao": "Sopa de legumes com frango", "quantidade": "1 tigela grande (400ml)", "preparo": "Panela de pressão" },
+            { "descricao": "Torrada integral", "quantidade": "2 unidades", "preparo": "Tostada" }
+          ],
+          "notas": ""
+        }
+      ],
+      "agua_ml": 2200,
+      "atividade_fisica": "Musculação 55 min (Costas e Bíceps)",
+      "qualidade_sono_noite_anterior": 8,
+      "observacoes_dia": "Dia bem alimentado, muito satisfeito com as escolhas"
+    },
+    {
+      "dia": 5,
+      "dia_semana": "Sexta-feira",
+      "refeicoes": [
+        {
+          "refeicao": "Café da Manhã",
+          "horario": "08:30",
+          "local": "Em casa",
+          "fome_antes": 4,
+          "saciedade_depois": 7,
+          "humor": "Sonolento",
+          "alimentos": [
+            { "descricao": "Torrada integral com pasta de amendoim", "quantidade": "2 fatias + 1 col. sopa", "preparo": "Natural" },
+            { "descricao": "Chá verde", "quantidade": "300ml", "preparo": "Infusão 5 min" }
+          ],
+          "notas": "Dia de folga, acordei mais tarde"
+        },
+        {
+          "refeicao": "Almoço (Refeição livre)",
+          "horario": "13:00",
+          "local": "Restaurante",
+          "fome_antes": 8,
+          "saciedade_depois": 9,
+          "humor": "Feliz",
+          "alimentos": [
+            { "descricao": "Feijoada completa", "quantidade": "1 prato médio", "preparo": "Servida no restaurante" },
+            { "descricao": "Arroz branco", "quantidade": "2 colheres cheias", "preparo": "Servido" },
+            { "descricao": "Farofa e couve", "quantidade": "porções pequenas", "preparo": "Servido" },
+            { "descricao": "Suco de laranja", "quantidade": "400ml", "preparo": "Natural gelado" }
+          ],
+          "notas": "Refeição livre combinada com a nutricionista — não me sinto culpado"
+        },
+        {
+          "refeicao": "Jantar",
+          "horario": "20:30",
+          "local": "Em casa",
+          "fome_antes": 4,
+          "saciedade_depois": 6,
+          "humor": "Relaxado",
+          "alimentos": [
+            { "descricao": "Iogurte grego com frutas vermelhas", "quantidade": "1 pote + 100g frutas", "preparo": "In natura" },
+            { "descricao": "Castanhas mistas", "quantidade": "20g", "preparo": "In natura" }
+          ],
+          "notas": "Jantar leve após almoço farto"
+        }
+      ],
+      "agua_ml": 1400,
+      "atividade_fisica": "Nenhuma (descanso)",
+      "qualidade_sono_noite_anterior": 9,
+      "observacoes_dia": "Sexta-feira de refeição livre. Compensei com jantar leve. Ingestão hídrica abaixo — preciso melhorar nos fins de semana."
+    },
+    {
+      "dia": 6,
+      "dia_semana": "Sábado",
+      "refeicoes": [
+        {
+          "refeicao": "Café da Manhã",
+          "horario": "09:00",
+          "local": "Em casa",
+          "fome_antes": 8,
+          "saciedade_depois": 9,
+          "humor": "Ótimo",
+          "alimentos": [
+            { "descricao": "Ovos estrelados no azeite (2 un)", "quantidade": "2 ovos", "preparo": "Frigideira antiaderente" },
+            { "descricao": "Cuscuz com queijo de minas", "quantidade": "150g + 30g queijo", "preparo": "Hidratado com água quente" },
+            { "descricao": "Suco de acerola natural", "quantidade": "200ml", "preparo": "Liquidificador" }
+          ],
+          "notas": "Café de fim de semana mais reforçado"
+        },
+        {
+          "refeicao": "Almoço em família",
+          "horario": "13:30",
+          "local": "Casa dos pais",
+          "fome_antes": 7,
+          "saciedade_depois": 9,
+          "humor": "Feliz",
+          "alimentos": [
+            { "descricao": "Frango caipira assado", "quantidade": "2 pedaços médios (200g)", "preparo": "Assado com ervas" },
+            { "descricao": "Arroz branco e feijão", "quantidade": "prato médio", "preparo": "Caseiro" },
+            { "descricao": "Farofa de ovo", "quantidade": "2 colheres de sopa", "preparo": "Caseira" },
+            { "descricao": "Salada de pepino e tomate", "quantidade": "1 prato", "preparo": "Cru com azeite" }
+          ],
+          "notas": "Comida caseira, sem processos industrializados"
+        }
+      ],
+      "agua_ml": 1800,
+      "atividade_fisica": "Ciclismo 45 min",
+      "qualidade_sono_noite_anterior": 9,
+      "observacoes_dia": "Fim de semana com família. Alimentação boa apesar do contexto social."
+    },
+    {
+      "dia": 7,
+      "dia_semana": "Domingo",
+      "refeicoes": [
+        {
+          "refeicao": "Brunch",
+          "horario": "10:00",
+          "local": "Em casa",
+          "fome_antes": 7,
+          "saciedade_depois": 9,
+          "humor": "Tranquilo",
+          "alimentos": [
+            { "descricao": "Vitamina verde (espinafre, banana, maçã, gengibre)", "quantidade": "400ml", "preparo": "Liquidificador" },
+            { "descricao": "Ovos mexidos com espinafre", "quantidade": "3 ovos + 50g espinafre", "preparo": "Frigideira" },
+            { "descricao": "Abacate", "quantidade": "1/2 unidade (80g)", "preparo": "In natura com limão e sal" }
+          ],
+          "notas": "Brunch domingo estilo saudável"
+        },
+        {
+          "refeicao": "Almoço",
+          "horario": "14:00",
+          "local": "Em casa",
+          "fome_antes": 5,
+          "saciedade_depois": 8,
+          "humor": "Normal",
+          "alimentos": [
+            { "descricao": "Salmão grelhado com ervas", "quantidade": "160g", "preparo": "Frigideira com azeite" },
+            { "descricao": "Purê de batata-doce", "quantidade": "150g", "preparo": "Amassada com alho-poró" },
+            { "descricao": "Brócolis no vapor", "quantidade": "100g", "preparo": "Vapor 5 min" }
+          ],
+          "notas": ""
+        },
+        {
+          "refeicao": "Jantar",
+          "horario": "20:00",
+          "local": "Em casa",
+          "fome_antes": 5,
+          "saciedade_depois": 7,
+          "humor": "Cansado",
+          "alimentos": [
+            { "descricao": "Sopa de lentilha com cenoura e gengibre", "quantidade": "2 conchas", "preparo": "Liquidificada e coada" },
+            { "descricao": "Pão de queijo (mini)", "quantidade": "2 unidades (40g)", "preparo": "Forno" }
+          ],
+          "notas": "Último dia da semana, zerando a geladeira"
+        }
+      ],
+      "agua_ml": 2000,
+      "atividade_fisica": "Yoga 30 min + alongamento",
+      "qualidade_sono_noite_anterior": 8,
+      "observacoes_dia": "Semana com boa adesão geral. Pontos de melhoria: hidratação nos fins de semana e registros incompletos na quarta."
+    }
+  ],
+  "resumo_semanal": {
+    "media_agua_ml": 1900,
+    "dias_com_atividade": 5,
+    "media_qualidade_sono": 7.8,
+    "refeicoes_registradas": 28,
+    "refeicoes_fora_plano": 2,
+    "pontos_positivos": [
+      "Boa adesão geral ao plano",
+      "Treinos realizados conforme programado",
+      "Refeição livre consciente na sexta"
+    ],
+    "pontos_melhoria": [
+      "Hidratação abaixo nos dias 3 e 5",
+      "Registro incompleto na quarta-feira",
+      "Fome elevada antes do almoço de segunda — ajustar lanche da manhã"
+    ]
+  }
+}

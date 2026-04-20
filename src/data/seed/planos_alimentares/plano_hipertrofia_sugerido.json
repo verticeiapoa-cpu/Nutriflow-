@@ -1,0 +1,95 @@
+{
+  "id": "seed_plano_hipertrofia",
+  "title": "Plano Hipertrofia — Intermediário",
+  "description": "Plano hipercalórico para ganho de massa muscular com foco em proteína e carboidratos ao redor do treino. Indicado para praticantes de musculação com frequência de 4–5x/semana.",
+  "objetivo": "Hipertrofia muscular",
+  "perfil_indicado": "Homem ou mulher, 20–40 anos, treino de força 4–5x/semana, sem patologias",
+  "total_calories": 2800,
+  "total_protein": 180,
+  "total_carbs": 340,
+  "total_fat": 75,
+  "total_fiber": 32,
+  "status": "ativo",
+  "distribuicao_macros": {
+    "proteina_pct": 26,
+    "carboidrato_pct": 49,
+    "gordura_pct": 25
+  },
+  "meals": [
+    {
+      "name": "Café da Manhã",
+      "time": "07:00",
+      "calories": 520,
+      "foods": [
+        { "name": "Ovos inteiros mexidos", "quantity": 3, "unit": "un", "calories": 210, "protein": 18, "carbs": 0, "fat": 15 },
+        { "name": "Pão integral", "quantity": 2, "unit": "fatias", "calories": 130, "protein": 6, "carbs": 24, "fat": 2 },
+        { "name": "Banana prata", "quantity": 1, "unit": "un média", "calories": 90, "protein": 1, "carbs": 22, "fat": 0 },
+        { "name": "Café preto sem açúcar", "quantity": 200, "unit": "ml", "calories": 5, "protein": 0, "carbs": 0, "fat": 0 },
+        { "name": "Whey protein (pós-acordar)", "quantity": 30, "unit": "g", "calories": 120, "protein": 24, "carbs": 3, "fat": 1, "alternatives": [{ "name": "Ovo cozido extra", "quantity": 2, "unit": "un" }] }
+      ],
+      "notas": "Tome o whey imediatamente ao acordar para quebrar o jejum proteico noturno."
+    },
+    {
+      "name": "Lanche da Manhã",
+      "time": "10:00",
+      "calories": 300,
+      "foods": [
+        { "name": "Iogurte grego integral", "quantity": 200, "unit": "g", "calories": 150, "protein": 17, "carbs": 7, "fat": 6 },
+        { "name": "Granola sem açúcar", "quantity": 30, "unit": "g", "calories": 120, "protein": 3, "carbs": 20, "fat": 4 },
+        { "name": "Kiwi ou morango", "quantity": 1, "unit": "porção", "calories": 45, "protein": 1, "carbs": 10, "fat": 0 }
+      ]
+    },
+    {
+      "name": "Almoço",
+      "time": "13:00",
+      "calories": 680,
+      "foods": [
+        { "name": "Arroz branco cozido", "quantity": 180, "unit": "g", "calories": 230, "protein": 4, "carbs": 50, "fat": 1, "alternatives": [{ "name": "Arroz integral", "quantity": 150, "unit": "g" }] },
+        { "name": "Feijão carioca cozido", "quantity": 100, "unit": "g", "calories": 90, "protein": 6, "carbs": 15, "fat": 0 },
+        { "name": "Peito de frango grelhado", "quantity": 180, "unit": "g", "calories": 230, "protein": 43, "carbs": 0, "fat": 4, "alternatives": [{ "name": "Filé de tilápia assado", "quantity": 200, "unit": "g" }] },
+        { "name": "Brócolis refogado no alho", "quantity": 150, "unit": "g", "calories": 60, "protein": 4, "carbs": 8, "fat": 2 },
+        { "name": "Azeite de oliva extra virgem", "quantity": 10, "unit": "ml", "calories": 90, "protein": 0, "carbs": 0, "fat": 10 }
+      ],
+      "notas": "Almoço é a maior refeição do dia. Capriche nos legumes coloridos."
+    },
+    {
+      "name": "Pré-Treino",
+      "time": "16:00",
+      "calories": 380,
+      "foods": [
+        { "name": "Batata-doce assada", "quantity": 200, "unit": "g", "calories": 160, "protein": 3, "carbs": 38, "fat": 0, "alternatives": [{ "name": "Macarrão integral", "quantity": 120, "unit": "g (cru)" }] },
+        { "name": "Peito de frango desfiado", "quantity": 120, "unit": "g", "calories": 155, "protein": 29, "carbs": 0, "fat": 3 },
+        { "name": "Manteiga de amendoim integral", "quantity": 15, "unit": "g", "calories": 90, "protein": 4, "carbs": 3, "fat": 8 }
+      ],
+      "notas": "Consumir 60–90 min antes do treino. Evitar gorduras em excesso próximo ao treino."
+    },
+    {
+      "name": "Pós-Treino (Jantar)",
+      "time": "19:30",
+      "calories": 620,
+      "foods": [
+        { "name": "Whey protein", "quantity": 40, "unit": "g", "calories": 160, "protein": 32, "carbs": 4, "fat": 2 },
+        { "name": "Banana prata (suplemento rápido)", "quantity": 1, "unit": "un", "calories": 90, "protein": 1, "carbs": 22, "fat": 0 },
+        { "name": "Macarrão integral cozido", "quantity": 150, "unit": "g", "calories": 195, "protein": 7, "carbs": 40, "fat": 1 },
+        { "name": "Patinho moído grelhado", "quantity": 150, "unit": "g", "calories": 210, "protein": 30, "carbs": 0, "fat": 9 },
+        { "name": "Tomate e rúcula", "quantity": 1, "unit": "porção", "calories": 25, "protein": 1, "carbs": 5, "fat": 0 }
+      ],
+      "notas": "Tome o whey imediatamente após o treino. O jantar sólido pode ser até 1h depois."
+    },
+    {
+      "name": "Ceia",
+      "time": "22:00",
+      "calories": 280,
+      "foods": [
+        { "name": "Cottage cheese", "quantity": 150, "unit": "g", "calories": 110, "protein": 18, "carbs": 4, "fat": 3, "alternatives": [{ "name": "Queijo minas frescal", "quantity": 80, "unit": "g" }] },
+        { "name": "Castanha-do-pará", "quantity": 2, "unit": "un", "calories": 60, "protein": 1, "carbs": 1, "fat": 6 },
+        { "name": "Chia", "quantity": 15, "unit": "g", "calories": 70, "protein": 2, "carbs": 6, "fat": 4 },
+        { "name": "Mel de abelha", "quantity": 10, "unit": "g", "calories": 30, "protein": 0, "carbs": 8, "fat": 0 }
+      ],
+      "notas": "A proteína lenta (caseína do cottage) sustenta a síntese proteica durante o sono."
+    }
+  ],
+  "supplements": "• Whey Protein: 2 doses/dia (30g pós-acordar + 40g pós-treino)\n• Creatina monoidratada: 5g/dia (qualquer horário, consistência é o mais importante)\n• Vitamina D3: 2.000 UI/dia com refeição gordurosa\n• Magnésio quelato: 300mg antes de dormir\n• Ômega-3: 2g/dia com almoço ou jantar",
+  "observations": "• Ajustar calorias se não houver ganho de peso após 3 semanas (+200 kcal/dia)\n• Garantir 7–9h de sono para otimização hormonal\n• Hidratação: mínimo 35 ml/kg de peso corporal/dia\n• Reavaliação antropométrica a cada 4 semanas\n• Evitar déficit calórico — prioridade é superávit leve (+200–300 kcal/dia)",
+  "tags": ["hipertrofia", "musculação", "hipercalórico", "alto carboidrato", "alto proteína"]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "seed_plano_emagrecimento",
+  "title": "Plano Emagrecimento Saudável",
+  "description": "Plano hipocalórico moderado para perda de gordura preservando massa muscular. Déficit de 400–500 kcal/dia sem restrição severa. Adequado para adesão a longo prazo.",
+  "objetivo": "Perda de gordura corporal",
+  "perfil_indicado": "Adulto com IMC 25–35, sedentário a moderadamente ativo, sem patologias graves",
+  "total_calories": 1650,
+  "total_protein": 140,
+  "total_carbs": 170,
+  "total_fat": 55,
+  "total_fiber": 35,
+  "status": "ativo",
+  "distribuicao_macros": {
+    "proteina_pct": 34,
+    "carboidrato_pct": 41,
+    "gordura_pct": 30
+  },
+  "meals": [
+    {
+      "name": "Café da Manhã",
+      "time": "07:30",
+      "calories": 350,
+      "foods": [
+        { "name": "Omelete de 2 ovos", "quantity": 2, "unit": "ovos", "calories": 155, "protein": 13, "carbs": 1, "fat": 11 },
+        { "name": "Queijo cottage", "quantity": 80, "unit": "g", "calories": 60, "protein": 10, "carbs": 2, "fat": 1 },
+        { "name": "Tomate cereja", "quantity": 100, "unit": "g", "calories": 20, "protein": 1, "carbs": 4, "fat": 0 },
+        { "name": "Pão de forma integral (1 fatia)", "quantity": 1, "unit": "fatia", "calories": 65, "protein": 3, "carbs": 12, "fat": 1 },
+        { "name": "Café preto ou chá verde", "quantity": 200, "unit": "ml", "calories": 5, "protein": 0, "carbs": 0, "fat": 0 },
+        {
+          "name": "Mamão formosa",
+          "quantity": 150,
+          "unit": "g",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "alternatives": [{ "name": "Melão", "quantity": 200, "unit": "g" }, { "name": "Melancia", "quantity": 200, "unit": "g" }]
+        }
+      ],
+      "notas": "Prefira proteína logo ao acordar para controlar a fome ao longo do dia."
+    },
+    {
+      "name": "Lanche da Manhã",
+      "time": "10:00",
+      "calories": 150,
+      "foods": [
+        { "name": "Maçã", "quantity": 1, "unit": "un média", "calories": 70, "protein": 0, "carbs": 18, "fat": 0, "alternatives": [{ "name": "Pera", "quantity": 1, "unit": "un" }, { "name": "Goiaba", "quantity": 2, "unit": "un" }] },
+        { "name": "Amêndoas", "quantity": 15, "unit": "g", "calories": 85, "protein": 3, "carbs": 3, "fat": 7 }
+      ],
+      "notas": "Lanche estratégico para evitar chegar com muita fome no almoço."
+    },
+    {
+      "name": "Almoço",
+      "time": "12:30",
+      "calories": 480,
+      "foods": [
+        { "name": "Arroz integral cozido", "quantity": 120, "unit": "g", "calories": 155, "protein": 3, "carbs": 32, "fat": 1, "alternatives": [{ "name": "Quinoa cozida", "quantity": 100, "unit": "g" }] },
+        { "name": "Lentilha cozida", "quantity": 80, "unit": "g", "calories": 80, "protein": 6, "carbs": 13, "fat": 0, "alternatives": [{ "name": "Feijão preto", "quantity": 80, "unit": "g" }] },
+        { "name": "Peito de frango assado", "quantity": 150, "unit": "g", "calories": 190, "protein": 36, "carbs": 0, "fat": 4, "alternatives": [{ "name": "Peixe grelhado (salmão, tilápia)", "quantity": 150, "unit": "g" }, { "name": "Carne bovina magra (patinho)", "quantity": 130, "unit": "g" }] },
+        { "name": "Salada verde (alface, rúcula, espinafre)", "quantity": 1, "unit": "prato", "calories": 25, "protein": 2, "carbs": 4, "fat": 0 },
+        { "name": "Azeite extra virgem", "quantity": 5, "unit": "ml", "calories": 45, "protein": 0, "carbs": 0, "fat": 5 }
+      ],
+      "notas": "Monte o prato com metade de vegetais, 1/4 de proteína e 1/4 de carboidrato complexo."
+    },
+    {
+      "name": "Lanche da Tarde",
+      "time": "15:30",
+      "calories": 180,
+      "foods": [
+        { "name": "Iogurte grego desnatado", "quantity": 170, "unit": "g", "calories": 100, "protein": 17, "carbs": 6, "fat": 0 },
+        { "name": "Frutas vermelhas (morango, mirtilo)", "quantity": 80, "unit": "g", "calories": 40, "protein": 1, "carbs": 9, "fat": 0 },
+        { "name": "Chia", "quantity": 10, "unit": "g", "calories": 45, "protein": 1, "carbs": 4, "fat": 3 }
+      ]
+    },
+    {
+      "name": "Jantar",
+      "time": "19:00",
+      "calories": 390,
+      "foods": [
+        { "name": "Sopa de legumes com frango desfiado", "quantity": 1, "unit": "porção grande", "calories": 250, "protein": 28, "carbs": 20, "fat": 5 },
+        { "name": "Torrada integral", "quantity": 2, "unit": "un", "calories": 80, "protein": 2, "carbs": 16, "fat": 1 },
+        {
+          "name": "Ovo cozido",
+          "quantity": 1,
+          "unit": "un",
+          "calories": 70,
+          "protein": 6,
+          "carbs": 0,
+          "fat": 5,
+          "alternatives": [{ "name": "Queijo minas frescal", "quantity": 40, "unit": "g" }]
+        }
+      ],
+      "notas": "Jantar leve facilita o sono e reduz estoques de glicogênio para queima de gordura."
+    },
+    {
+      "name": "Ceia (opcional)",
+      "time": "21:30",
+      "calories": 100,
+      "foods": [
+        {
+          "name": "Chá de camomila ou melissa",
+          "quantity": 200,
+          "unit": "ml",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0
+        },
+        {
+          "name": "Cottage (se com fome)",
+          "quantity": 80,
+          "unit": "g",
+          "calories": 60,
+          "protein": 10,
+          "carbs": 2,
+          "fat": 1
+        }
+      ],
+      "notas": "Somente se sentir fome real. O chá ajuda na qualidade do sono."
+    }
+  ],
+  "supplements": "• Vitamina D3: 2.000–4.000 UI/dia (dosar previamente)\n• Ômega-3: 2–4g/dia com refeição\n• Magnésio quelato: 200–300mg antes de dormir\n• Proteína whey (opcional): 25g se não atingir meta proteica pelo alimento\n• Probiótico: 1 cápsula/dia em jejum",
+  "observations": "• Déficit médio de 400–500 kcal/dia em relação ao GET\n• Perda esperada: 0,5–0,8 kg/semana de gordura corporal\n• Hidratação: 35 ml/kg/dia mínimo (água, chás, água com gás)\n• Evitar bebidas alcoólicas e açucaradas\n• Incluir 150–300 min/semana de atividade física\n• Dormir 7–9h — o sono ruim sabota o emagrecimento\n• Reavaliação a cada 4 semanas; ajuste se perda < 0,3 kg/semana",
+  "tags": ["emagrecimento", "perda de gordura", "hipocalórico", "low carb moderado", "déficit calórico"]
+}

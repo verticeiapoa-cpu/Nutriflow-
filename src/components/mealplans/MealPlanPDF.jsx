@@ -24,8 +24,10 @@ async function gerarPDFProfissional(plan, patient) {
   const cfg = getConfig();
   const margin = 18;
   const pageW = 210;
-  const corPrincipal = cfg.cor || "#2E7D32";
-  const [r, g, b] = hexToRGB(corPrincipal);
+  const corPrincipal  = cfg.cor     || "#1D9E75";
+  const corSecundaria = cfg.cor_sec || "#0F6E56";
+  const [r, g, b]     = hexToRGB(corPrincipal);
+  const [rs, gs, bs]  = hexToRGB(corSecundaria);
   const foto = getFotoPaciente(patient?.id || "");
   let y = 15;
 
@@ -34,9 +36,21 @@ async function gerarPDFProfissional(plan, patient) {
   };
 
   // ── HEADER ──────────────────────────────────────────────────────────────
+  // Faixa colorida com cor primária
+  doc.setFillColor(r, g, b);
+  doc.rect(0, 0, pageW, 8, "F");
+
   if (cfg.logo) {
-    try { doc.addImage(cfg.logo, "JPEG", margin, y, 30, 18); } catch (e) {}
+    try { doc.addImage(cfg.logo, "JPEG", margin, y, 28, 16); } catch (e) {}
   }
+
+  // Foto da profissional (canto direito)
+  if (cfg.foto_prof) {
+    try {
+      doc.addImage(cfg.foto_prof, "JPEG", pageW - margin - 16, y, 16, 16, undefined, undefined, undefined, "F");
+    } catch (e) {}
+  }
+
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
   doc.setTextColor(r, g, b);
@@ -45,11 +59,12 @@ async function gerarPDFProfissional(plan, patient) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8.5);
   doc.setTextColor(100, 100, 100);
-  if (cfg.email) doc.text(cfg.email, pageW / 2, y + 11, { align: "center" });
-  if (cfg.tel) doc.text(cfg.tel, pageW - margin, y + 5, { align: "right" });
-  if (cfg.endereco) doc.text(cfg.endereco, pageW - margin, y + 11, { align: "right" });
-  if (cfg.site) doc.text(cfg.site, pageW - margin, y + 17, { align: "right" });
-  y += 26;
+  if (cfg.crn) doc.text(cfg.crn, pageW / 2, y + 11, { align: "center" });
+  if (cfg.email) doc.text(cfg.email, pageW / 2, y + 16, { align: "center" });
+  if (cfg.tel) doc.text(cfg.tel, pageW - margin - 18, y + 5, { align: "right" });
+  if (cfg.endereco) doc.text(cfg.endereco, pageW - margin - 18, y + 11, { align: "right" });
+  if (cfg.site) doc.text(cfg.site, pageW - margin - 18, y + 17, { align: "right" });
+  y += 28;
 
   // Linha divisória
   doc.setDrawColor(220, 220, 220);
@@ -120,7 +135,7 @@ async function gerarPDFProfissional(plan, patient) {
   if (plan) {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
-    doc.setTextColor(r, g, b);
+    doc.setTextColor(rs, gs, bs);
     doc.text("REFEIÇÕES", margin, y);
     y += 7;
 
@@ -193,7 +208,7 @@ async function gerarPDFProfissional(plan, patient) {
       y += 6;
       doc.setFont("helvetica", "bold");
       doc.setFontSize(9.5);
-      doc.setTextColor(r, g, b);
+      doc.setTextColor(rs, gs, bs);
       doc.text("SUPLEMENTAÇÃO", margin, y);
       y += 5;
       doc.setFont("helvetica", "normal");
@@ -208,7 +223,7 @@ async function gerarPDFProfissional(plan, patient) {
       checkPage(20);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(9.5);
-      doc.setTextColor(r, g, b);
+      doc.setTextColor(rs, gs, bs);
       doc.text("OBSERVAÇÕES", margin, y);
       y += 5;
       doc.setFont("helvetica", "normal");
