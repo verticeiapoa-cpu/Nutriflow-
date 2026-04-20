@@ -3,37 +3,46 @@ import { defineConfig } from 'vite'
 import path from 'path'
 
 // Agrupa dependências em chunks por peso/finalidade.
-// Objetivo: reduzir o chunk principal de ~1.6MB para vários
-// chunks carregados sob demanda.
+// IMPORTANTE: libs que usam React.createContext (Radix, react-hook-form,
+// react-quill, framer-motion, @hello-pangea/dnd, lucide-react, recharts)
+// ficam juntas com o React no chunk "react-vendor" para evitar
+// erros de ordem de carregamento ("Cannot read properties of undefined (reading 'createContext')").
 function manualChunks(id) {
   if (!id.includes('node_modules')) return
 
-  if (id.includes('react-dom') || id.includes('react-router') || /node_modules[\\/]react[\\/]/.test(id)) {
+  // ---------- React + tudo que usa React.createContext ----------
+  if (
+    /node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler|prop-types)[\\/]/.test(id) ||
+    id.includes('@radix-ui') ||
+    id.includes('react-hook-form') ||
+    id.includes('@hookform') ||
+    id.includes('react-quill') ||
+    id.includes('framer-motion') ||
+    id.includes('@hello-pangea/dnd') ||
+    id.includes('lucide-react') ||
+    id.includes('recharts')
+  ) {
     return 'react-vendor'
   }
+
+  // ---------- Libs pesadas sem dependência de contexto React em runtime ----------
   if (id.includes('jspdf') || id.includes('html2canvas') || id.includes('purify')) {
     return 'pdf-vendor'
   }
-  if (id.includes('recharts') || id.includes('d3-')) {
+  if (id.includes('d3-')) {
     return 'charts-vendor'
   }
-  if (id.includes('framer-motion') || id.includes('@hello-pangea/dnd')) {
-    return 'motion-vendor'
-  }
-  if (id.includes('react-hook-form') || id.includes('@hookform') || id.includes('zod')) {
+  if (id.includes('zod')) {
     return 'forms-vendor'
   }
-  if (id.includes('@radix-ui')) {
-    return 'radix-vendor'
-  }
-  if (id.includes('lucide-react') || id.includes('class-variance-authority') ||
+  if (id.includes('class-variance-authority') ||
       id.includes('clsx') || id.includes('tailwind-merge')) {
     return 'ui-vendor'
   }
   if (id.includes('date-fns') || id.includes('moment')) {
     return 'date-vendor'
   }
-  if (id.includes('react-quill') || id.includes('quill')) {
+  if (id.includes('quill') && !id.includes('react-quill')) {
     return 'editor-vendor'
   }
   if (id.includes('@supabase')) {
@@ -53,7 +62,7 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 1200,
     rollupOptions: {
       output: { manualChunks },
     },
