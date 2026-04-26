@@ -70,6 +70,8 @@ import Atestados from './pages/Atestados';
 import PedidoExames from './pages/PedidoExames';
 import ModelosMensagens from './pages/ModelosMensagens';
 import MensagensAuto from './pages/MensagensAuto';
+import MealPlanLibrary from './pages/MealPlanLibrary';
+import MealPlanEditor from './pages/MealPlanEditor';
 import __Layout from './Layout.jsx';
 
 
@@ -97,6 +99,8 @@ export const PAGES = {
     "PedidoExames": PedidoExames,
     "ModelosMensagens": ModelosMensagens,
     "MensagensAuto": MensagensAuto,
+    "MealPlanLibrary": MealPlanLibrary,
+    "MealPlanEditor": MealPlanEditor,
 }
 
 export const pagesConfig = {

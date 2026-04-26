@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { db as base44 } from "@/api/localDB";
-import { Plus, Utensils, MessageCircle, BookOpen, Download, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Plus, Utensils, MessageCircle, BookOpen, Download, X, ChevronDown, ChevronUp, BookMarked, Edit2, Flame } from "lucide-react";
 import MealPlanBuilder from "../mealplans/MealPlanBuilder";
 import MealPlanPDF from "../mealplans/MealPlanPDF";
 import ShoppingList from "../mealplans/ShoppingList";
 import { BIBLIOTECA_PLANOS } from "@/data/seed/index.js";
+import { useMealPlans } from "@/hooks/useMealPlans";
+import MealPlanLibrary from "@/pages/MealPlanLibrary";
+import { createPageUrl } from "@/utils";
 
 // ── Modal inline para importar da biblioteca ──────────────────────────────
 function BibliotecaModal({ patientId, patientName, onImport, onClose }) {
@@ -129,11 +133,24 @@ function BibliotecaModal({ patientId, patientName, onImport, onClose }) {
 
 // ── Tab principal ─────────────────────────────────────────────────────────
 export default function MealPlanTab({ patientId, patientName, patientPhone, patient }) {
+  const navigate = useNavigate();
   const [plans,       setPlans]       = useState([]);
   const [loading,     setLoading]     = useState(true);
   const [showBuilder, setShowBuilder] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
   const [editingPlan, setEditingPlan] = useState(null);
+
+  // ── Planos de templates (novo sistema nf_patient_meal_plans) ──────────────
+  const { getPatientPlans } = useMealPlans(patientId);
+  const [templatePlans,         setTemplatePlans]         = useState([]);
+  const [showTemplateLibrary,   setShowTemplateLibrary]   = useState(false);
+
+  const loadTemplatePlans = () => setTemplatePlans(getPatientPlans());
+
+  const handleTemplatePlanCreated = () => {
+    setShowTemplateLibrary(false);
+    loadTemplatePlans();
+  };
 
   const load = async () => {
     const data = await base44.entities.MealPlan.filter({ patient_id: patientId });
@@ -141,7 +158,10 @@ export default function MealPlanTab({ patientId, patientName, patientPhone, pati
     setLoading(false);
   };
 
-  useEffect(() => { load(); }, [patientId]);
+  useEffect(() => {
+    load();
+    loadTemplatePlans();
+  }, [patientId]);
 
   const handleWhatsApp = (plan) => {
     const phone = patientPhone?.replace(/\D/g, "");
@@ -289,6 +309,118 @@ export default function MealPlanTab({ patientId, patientName, patientPhone, pati
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* ── Seção: Planos da Biblioteca de Templates ─────────────────────── */}
+      <div className="pt-4 border-t border-gray-100">
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2">
+            <BookMarked className="w-4 h-4" style={{ color: "#2D4F4F" }} />
+            <h3 className="font-semibold text-gray-800 text-sm">Planos da Biblioteca de Templates</h3>
+            {templatePlans.length > 0 && (
+              <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{templatePlans.length}</span>
+            )}
+          </div>
+          <button
+            onClick={() => setShowTemplateLibrary(true)}
+            className="flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl font-medium transition-colors"
+            style={{ background: "#2D4F4F", color: "#fff" }}
+          >
+            <Plus className="w-3.5 h-3.5" />
+            Adicionar plano alimentar
+          </button>
+        </div>
+
+        {templatePlans.length === 0 ? (
+          <div className="text-center py-8 bg-gray-50 rounded-xl border border-dashed border-gray-200">
+            <BookMarked className="w-8 h-8 mx-auto mb-2 opacity-20" style={{ color: "#2D4F4F" }} />
+            <p className="text-sm font-medium text-gray-500">Nenhum plano de template vinculado</p>
+            <p className="text-xs text-gray-400 mt-1">Escolha um dos 27 templates clínicos da biblioteca</p>
+            <button
+              onClick={() => setShowTemplateLibrary(true)}
+              className="mt-3 text-xs px-4 py-1.5 rounded-xl font-semibold"
+              style={{ background: "#E8F0EF", color: "#2D4F4F" }}
+            >
+              Abrir biblioteca
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {templatePlans.map((plan) => (
+              <div
+                key={plan.id}
+                className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-3 hover:border-gray-200 transition-colors"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-sm font-semibold text-gray-900 truncate">{plan.name}</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 font-medium flex-shrink-0">
+                      v{plan.version || 1}
+                    </span>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium flex-shrink-0 ${
+                      plan.status === "ativo" ? "bg-green-100 text-green-700" :
+                      plan.status === "arquivado" ? "bg-gray-100 text-gray-500" :
+                      "bg-amber-100 text-amber-700"
+                    }`}>{plan.status || "ativo"}</span>
+                  </div>
+                  <div className="flex items-center gap-3 mt-1 text-xs text-gray-500 flex-wrap">
+                    <span className="flex items-center gap-1">
+                      <Flame className="w-3 h-3 text-orange-400" />
+                      <strong className="text-gray-700">{plan.totalCalories}</strong> kcal/dia
+                    </span>
+                    {plan.mealsPerDay && (
+                      <span className="flex items-center gap-1">
+                        <Utensils className="w-3 h-3 text-gray-400" />
+                        {plan.mealsPerDay} refeições
+                      </span>
+                    )}
+                    {plan.created_date && (
+                      <span className="text-gray-400">
+                        Início {new Date(plan.created_date).toLocaleDateString("pt-BR")}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => navigate(createPageUrl("MealPlanEditor") + "?planId=" + plan.id)}
+                  className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg font-semibold flex-shrink-0 transition-colors hover:opacity-80"
+                  style={{ background: "#E8F0EF", color: "#2D4F4F" }}
+                >
+                  <Edit2 className="w-3 h-3" />
+                  Editar
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Modal: Biblioteca de Templates */}
+      {showTemplateLibrary && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-black/60">
+          <div className="flex-1 bg-white flex flex-col overflow-hidden">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 flex-shrink-0" style={{ background: "#2D4F4F" }}>
+              <div>
+                <h2 className="font-bold text-white text-base">Biblioteca de Planos Alimentares</h2>
+                <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  Paciente: <strong>{patientName}</strong>
+                </p>
+              </div>
+              <button
+                onClick={() => setShowTemplateLibrary(false)}
+                className="p-2 rounded-lg hover:bg-white/10 text-white transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-6">
+              <MealPlanLibrary
+                patientId={patientId}
+                onPlanCreated={handleTemplatePlanCreated}
+              />
+            </div>
+          </div>
         </div>
       )}
 
