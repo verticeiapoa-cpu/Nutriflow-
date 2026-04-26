@@ -35,6 +35,7 @@ const NAV_GROUPS = [
     title: "Clínico",
     items: [
       { name: "Planos Alimentares",    icon: Utensils,        page: "MealPlans"               },
+      { name: "Biblioteca de Planos",  icon: BookMarked,      page: "MealPlanLibrary"         },
       { name: "Antropometria",         icon: Scale,           page: "Anthropometry"           },
       { name: "Diário Alimentar",      icon: BookOpen,        page: "DiarioAlimentar"         },
       { name: "Exames Laboratoriais",  icon: FlaskConical,    page: "LabExams"                },
@@ -70,6 +71,8 @@ const PAGE_TITLES = {
   MensagensAuto: "Mensagens Automáticas", PacientesAcesso: "Acessos ao Portal",
   TabelaAlimentos: "Tabela de Alimentos", Settings: "Configurações",
   PatientDetail: "Ficha do Paciente",
+  MealPlanLibrary: "Biblioteca de Planos",
+  MealPlanEditor: "Editor de Plano",
 };
 
 // ── Item de navegação (sidebar escura) ───────────────────────────────────
