@@ -1,0 +1,178 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="NutriPersonal — organização alimentar prática para adultos saudáveis."><meta property="og:title" content="NutriPersonal — Organização alimentar prática"><meta property="og:description" content="Estimativas, modelos de refeições e lista de compras em poucos minutos."><meta property="og:type" content="website"><meta name="theme-color" content="#193f2d"><title>NutriPersonal — Organização alimentar prática</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root{--green:#193f2d;--green2:#2f674d;--mint:#dfeee3;--cream:#f8f4ec;--paper:#fffdf9;--gold:#c89746;--ink:#203028;--muted:#6b7d72;--line:#dce6de;--danger:#8a4b2d;--shadow:0 18px 50px rgba(25,63,45,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}.hidden{position:absolute;left:-9999px}
+.topbar{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1180px)/2));background:rgba(248,244,236,.92);backdrop-filter:blur(14px);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(25,63,45,.08)}
+.brand{display:flex;gap:11px;align-items:center;background:none;border:0;color:var(--green);text-align:left}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--green2));color:white;display:grid;place-items:center;font-family:'Cormorant Garamond';font-size:24px}.brand strong{display:block;font-family:'Cormorant Garamond';font-size:23px;line-height:.9}.brand small{font-size:10px;color:var(--muted);letter-spacing:.07em}.topbar nav{display:flex;gap:6px}.topbar nav button{border:0;background:none;color:var(--muted);padding:9px 11px;border-radius:9px}.topbar nav button:hover{background:var(--mint);color:var(--green)}
+.hero{max-width:1180px;margin:auto;padding:78px 24px 68px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;color:var(--green2)}h1,h2,h3,p{margin-top:0}.hero h1,.legal h1,.app-intro h1{font-family:'Cormorant Garamond';font-size:clamp(46px,6vw,76px);line-height:.92;margin:15px 0 22px;color:var(--green);letter-spacing:-.025em}.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:650px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}.btn{border:0;border-radius:11px;padding:13px 18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}.btn.primary{background:var(--green);color:white}.btn.ghost{background:transparent;border:1px solid var(--green);color:var(--green)}.btn.dark{background:#10281c;color:white}.trust-row{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.hero-card{background:linear-gradient(145deg,#214f39,#0f2d20);border-radius:30px;padding:32px;box-shadow:var(--shadow);transform:rotate(1deg)}.mini-window{background:#fbfaf6;border-radius:20px;padding:18px}.window-head{display:flex;gap:6px;margin-bottom:18px}.window-head span{width:9px;height:9px;background:#d5cbbb;border-radius:50%}.score-card{background:var(--mint);padding:20px;border-radius:16px;margin-bottom:12px}.score-card small{color:var(--green2);font-weight:700}.score-card strong{display:block;font-family:'Cormorant Garamond';font-size:34px;color:var(--green);margin:4px 0}.score-card p{font-size:11px;margin:0}.meal-preview{display:flex;justify-content:space-between;gap:12px;padding:13px 4px;border-bottom:1px solid #eee7db;font-size:12px}.meal-preview span{color:var(--muted);text-align:right}
+.section{max-width:1180px;margin:auto;padding:74px 24px}.section-head{max-width:680px;margin-bottom:34px}.section h2,.legal h2,.results h2,.form-panel h2{font-family:'Cormorant Garamond';font-size:36px;line-height:1.05;color:var(--green);margin:10px 0 0}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step{background:var(--paper);border:1px solid var(--line);padding:24px;border-radius:18px}.step>span{font-family:'Cormorant Garamond';font-size:27px;color:var(--gold)}.step h3{margin:18px 0 8px;color:var(--green)}.step p{color:var(--muted);font-size:14px;line-height:1.6}.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.lead{font-size:17px;line-height:1.7;color:var(--muted)}.compare-card{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden}.compare-card>div{padding:26px;display:flex;flex-direction:column;gap:12px}.compare-card strong{font-family:'Cormorant Garamond';font-size:24px}.compare-card span{font-size:13px;color:var(--muted)}.compare-card .featured{background:var(--green);color:white}.compare-card .featured span{color:#d6eadf}
+.lead-box{background:#efe7d9;border-radius:28px;margin-top:40px;margin-bottom:80px;display:grid;grid-template-columns:1fr .8fr;gap:40px}.lead-box form{display:flex;flex-direction:column;gap:10px}.lead-box label,.form-panel label{font-size:12px;font-weight:700;color:var(--green)}input,select{width:100%;border:1px solid var(--line);background:white;padding:12px 13px;border-radius:10px;margin-top:5px;color:var(--ink);outline:none}input:focus,select:focus{border-color:#82aa90;box-shadow:0 0 0 3px rgba(47,103,77,.1)}.lead-box small{min-height:18px;color:var(--green2)}.footer{border-top:1px solid var(--line);padding:36px max(24px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:1fr auto;gap:20px;color:var(--muted);font-size:13px}.footer strong{color:var(--green);font-family:'Cormorant Garamond';font-size:22px}.footer p{margin:4px 0}.footer div:nth-child(2){display:flex;gap:10px}.footer button{border:0;background:none;color:var(--muted)}.footer small{grid-column:1/-1}
+.app-shell{max-width:1180px;margin:auto;padding:54px 24px 80px}.app-intro{max-width:760px}.app-intro h1{font-size:58px}.app-intro p{color:var(--muted);line-height:1.65}.access-box,.access-ok{margin:24px 0;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;grid-template-columns:1fr 220px auto;gap:10px;align-items:center}.access-box strong{display:block;color:var(--green)}.access-box span,.access-box small{font-size:12px;color:var(--muted)}.access-box input{margin:0}.access-box small{grid-column:2/-1}.access-ok{display:block;color:var(--green2);font-weight:700}.planner-grid{display:grid;grid-template-columns:380px 1fr;gap:18px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 30px rgba(25,63,45,.05)}.form-panel{position:sticky;top:92px}.fields{display:grid;gap:12px;margin:20px 0}.fields.two{grid-template-columns:1fr 1fr}.fields .wide{grid-column:1/-1}.fineprint{font-size:11px;line-height:1.55;color:var(--muted);margin:14px 0 0}.results{min-height:520px}.empty{text-align:center;padding:100px 20px;color:var(--muted)}.empty span{font-size:42px;color:var(--gold)}.empty h2{margin:14px 0 8px}.result-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.result-head h2{margin-top:6px}.warning{background:#fff4e8;border:1px solid #f0d6bb;border-radius:12px;padding:14px;margin-bottom:16px;color:var(--danger)}.warning p{margin:5px 0 0;font-size:12px;line-height:1.55}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric-grid article,.macro-grid article{background:#f4f8f5;border-radius:13px;padding:15px}.metric-grid small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.metric-grid strong{display:block;color:var(--green);font-family:'Cormorant Garamond';font-size:26px;margin-top:4px}.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 28px}.macro-grid span{font-size:11px;color:var(--muted)}.macro-grid strong{display:block;margin-top:4px;color:var(--green)}.day-card{border-top:1px solid var(--line);padding:18px 0}.day-card h3{font-family:'Cormorant Garamond';font-size:24px;color:var(--green);margin-bottom:10px}.meal-row{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:8px 0}.meal-row span{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}.meal-row p{font-size:13px;margin:0}.grocery{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.chips span{background:#f4f8f5;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:12px}.upgrade{background:linear-gradient(135deg,var(--green),var(--green2));color:white;border-radius:16px;padding:20px;margin-top:22px}.upgrade h3{margin-bottom:5px}.upgrade p{color:#dcebe1;font-size:13px}.upgrade .btn{background:white;color:var(--green)}
+.legal{max-width:760px;margin:auto;padding:74px 24px 100px}.legal h1{font-size:62px}.legal section{padding:22px 0;border-top:1px solid var(--line)}.legal h2{font-size:27px;margin:0 0 10px}.legal p{line-height:1.7;color:var(--muted)}
+@media(max-width:900px){.hero,.split,.lead-box,.planner-grid{grid-template-columns:1fr}.hero{gap:36px;padding-top:48px}.steps{grid-template-columns:1fr 1fr}.hero-card{transform:none}.form-panel{position:static}.access-box{grid-template-columns:1fr}.access-box small{grid-column:auto}.topbar nav button:nth-child(3){display:none}}
+@media(max-width:620px){.topbar{height:66px;padding:0 16px}.brand small{display:none}.topbar nav{gap:0}.topbar nav button{font-size:12px;padding:8px}.hero,.section,.app-shell{padding-left:16px;padding-right:16px}.hero h1{font-size:49px}.hero p{font-size:16px}.steps,.compare-card,.metric-grid,.macro-grid,.fields.two{grid-template-columns:1fr}.fields .wide{grid-column:auto}.lead-box{margin-left:16px;margin-right:16px}.footer{grid-template-columns:1fr;padding:28px 16px}.footer div:nth-child(2){flex-wrap:wrap}.meal-row{grid-template-columns:1fr;gap:3px}.result-head{align-items:flex-start}.app-intro h1{font-size:48px}}
+@media print{body{background:white}.no-print,.topbar{display:none!important}.app-shell{max-width:none;padding:0}.panel{border:0;box-shadow:none;padding:0}.planner-grid{display:block}.results{min-height:auto}.day-card{break-inside:avoid}.grocery{break-inside:avoid}.app-intro p{font-size:11px}.app-intro h1{font-size:34px;margin-bottom:8px}.metric-grid,.macro-grid{grid-template-columns:repeat(3,1fr)}@page{margin:14mm}}
+
+</style></head><body>
+<form name="lead" netlify netlify-honeypot="bot-field" hidden><input name="name"><input type="email" name="email"><input name="source"><input name="bot-field"></form>
+<header class="topbar no-print"><a class="brand" href="/" data-nav><span class="brand-mark">N</span><span><strong>NutriPersonal</strong><small>organização alimentar prática</small></span></a><nav><a href="/" data-nav>Início</a><a href="/app" data-nav>Testar</a><a href="/privacidade" data-nav>Privacidade</a></nav></header>
+
+<main class="page" data-page="home">
+<section class="hero"><div class="hero-copy"><span class="eyebrow">Planejamento alimentar sem complicação</span><h1>Organize melhor o que comer durante a semana.</h1><p>Receba estimativas energéticas, referências de macronutrientes, modelos de refeições e uma lista de compras em poucos minutos. Sem promessa milagrosa.</p><div class="hero-actions no-print"><button class="btn primary" id="start-demo">Testar demonstração</button><a class="btn ghost" data-checkout="hero" target="_blank" rel="noreferrer">Quero acesso completo</a></div><div class="trust-row"><span>✓ Pagamento único</span><span>✓ Dados do planejador ficam no navegador</span><span>✓ PDF por impressão</span></div></div><div class="hero-card"><div class="mini-window"><div class="window-head"><span></span><span></span><span></span></div><div class="score-card"><small>FAIXA ENERGÉTICA ESTIMADA</small><strong>1.850–2.150 kcal</strong><p>Referência educativa, não prescrição clínica.</p></div><div class="meal-preview"><b>Semana organizada</b><span>Café · Almoço · Lanche · Jantar</span></div><div class="meal-preview"><b>Lista de compras</b><span>Itens básicos reunidos em um lugar</span></div></div></div></section>
+<section class="section"><div class="section-head"><span class="eyebrow">Como funciona</span><h2>Do perfil à semana organizada em quatro passos.</h2></div><div class="steps"><article><span>01</span><h3>Informe o básico</h3><p>Idade, peso, altura, rotina e objetivo geral.</p></article><article><span>02</span><h3>Veja referências</h3><p>Estimativas de energia e macronutrientes em faixa.</p></article><article><span>03</span><h3>Monte sua semana</h3><p>Modelos simples de combinações alimentares.</p></article><article><span>04</span><h3>Leve para a rotina</h3><p>Lista de compras e versão pronta para salvar em PDF.</p></article></div></section>
+<section class="section split"><div><span class="eyebrow">Para quem é</span><h2>Adultos saudáveis que querem organização, não tratamento.</h2><p class="lead">O produto é voltado para planejamento cotidiano e educação alimentar. Casos clínicos, gestação, transtornos alimentares, menores de idade e necessidades terapêuticas devem ser acompanhados por profissional habilitado.</p></div><div class="compare-card"><div><strong>Demonstração</strong><span>1 dia de modelos</span><span>Estimativas básicas</span><span>Sem lista completa</span></div><div class="featured"><strong>Completo · R$ 67</strong><span>7 dias de modelos</span><span>Lista de compras</span><span>Exportação/PDF</span></div></div></section>
+<section class="section lead-box no-print"><div><span class="eyebrow">Ainda pensando?</span><h2>Receba o link da demonstração.</h2><p>Capturamos o lead antes de mandar todo mundo direto ao checkout. Conceito revolucionário: não desperdiçar tráfego.</p></div><form id="lead-form" name="lead" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="lead"><input type="hidden" name="source" value="landing"><p class="hidden"><label>Não preencha <input name="bot-field"></label></p><label>Nome<input name="name" required autocomplete="name"></label><label>E-mail<input name="email" required type="email" autocomplete="email"></label><button class="btn primary" type="submit">Receber demonstração</button><small id="lead-status" aria-live="polite"></small></form></section>
+<footer class="footer"><div><strong>NutriPersonal</strong><p>Ferramenta educacional de organização alimentar.</p></div><div><a href="/privacidade" data-nav>Privacidade</a><a href="/termos" data-nav>Termos</a><a href="/contato" data-nav>Contato</a></div><small>© 2026 NutriPersonal. Informações de caráter educativo.</small></footer>
+</main>
+
+<main class="page app-shell" data-page="app" hidden><section class="app-intro"><span class="eyebrow" id="mode-label">DEMONSTRAÇÃO</span><h1>Monte sua referência alimentar.</h1><p>As estimativas servem para organização e educação. Não substituem avaliação, diagnóstico ou prescrição de nutricionista.</p></section><div class="access-ok" id="access-ok" hidden>✓ Acesso completo ativo nesta sessão</div><form class="access-box no-print" id="access-form"><div><strong>Já comprou?</strong><span id="unlock-note">Digite o código de acesso entregue após a compra.</span></div><input id="access-code" placeholder="Código de acesso" aria-label="Código de acesso"><button class="btn dark" type="submit">Liberar</button><small id="access-status" aria-live="polite"></small></form>
+<div class="planner-grid"><form class="panel form-panel no-print" id="planner-form"><h2>Seu perfil</h2><div class="fields two"><label>Sexo para cálculo<select name="sex"><option value="masculino">Masculino</option><option value="feminino">Feminino</option></select></label><label>Idade<input name="age" type="number" min="18" max="64" value="35" required></label><label>Peso (kg)<input name="weight" type="number" min="35" max="250" step="0.1" value="78" required></label><label>Altura (cm)<input name="height" type="number" min="140" max="220" value="175" required></label><label>Atividade<select name="activity"><option value="sedentario">Sedentária</option><option value="leve" selected>Leve</option><option value="moderado">Moderada</option><option value="alto">Alta</option></select></label><label>Objetivo<select name="goal"><option value="manter">Manter</option><option value="reduzir">Redução gradual</option><option value="aumentar">Aumento gradual</option></select></label><label class="wide">Estilo alimentar<select name="style"><option value="onivoro">Onívoro</option><option value="vegetariano">Vegetariano com ovos/lácteos</option></select></label></div><button class="btn primary" type="submit">Gerar referências</button><p class="fineprint">Não utilize para crianças, gestantes, lactantes, transtornos alimentares ou condições clínicas que exijam dieta terapêutica.</p></form><section class="panel results" id="results"><div class="empty"><span>↗</span><h2>Preencha o perfil</h2><p>Suas referências aparecerão aqui.</p></div></section></div></main>
+
+<main class="page legal" data-page="privacy" hidden><span class="eyebrow">NutriPersonal</span><h1>Política de privacidade</h1><section><h2>Dados do planejador</h2><p>Os dados informados no planejador são processados no seu navegador e, nesta versão, não são enviados ao servidor nem armazenados em banco de dados pela NutriPersonal.</p></section><section><h2>Dados de contato</h2><p>Se você preencher o formulário de interesse, nome e e-mail poderão ser armazenados pela infraestrutura de formulários da Netlify para contato sobre o produto.</p></section><section><h2>Código de acesso</h2><p>O código digitado para liberar a versão completa é enviado à função de validação da Netlify e não é armazenado pelo app.</p></section><section><h2>Antes do lançamento</h2><p>Devem ser inseridos identificação jurídica do fornecedor, canal de privacidade e procedimento para solicitações do titular.</p></section><p class="fineprint">Versão preliminar para MVP. Revisão jurídica profissional recomendada antes de escalar vendas.</p></main>
+<main class="page legal" data-page="terms" hidden><span class="eyebrow">NutriPersonal</span><h1>Termos de uso</h1><section><h2>Natureza do serviço</h2><p>A NutriPersonal é uma ferramenta educacional de organização alimentar para adultos saudáveis. Não realiza diagnóstico, consulta ou prescrição dietética clínica.</p></section><section><h2>Limitações</h2><p>As estimativas são aproximações matemáticas. Situações clínicas, gestação, lactação e necessidades terapêuticas exigem acompanhamento profissional.</p></section><section><h2>Fornecedor</h2><p>Antes da venda definitiva, preencher razão social/nome empresarial, CPF/CNPJ, endereço comercial e canal de suporte.</p></section><p class="fineprint">Versão preliminar para MVP. Revisão jurídica profissional recomendada antes de escalar vendas.</p></main>
+<main class="page legal" data-page="contact" hidden><span class="eyebrow">NutriPersonal</span><h1>Contato</h1><section><h2>Atendimento</h2><p>Use o formulário da página inicial para deixar seu nome e e-mail. Antes do lançamento definitivo, inclua um e-mail de suporte e a identificação completa do fornecedor.</p></section></main>
+<script type="module">
+const mealLibrary = {
+  onivoro: {
+    cafe: ['Iogurte natural + aveia + banana + canela','Ovos mexidos + pão integral + fruta','Vitamina de leite + banana + aveia','Tapioca com ovo + fruta'],
+    almoco: ['Arroz + feijão + frango grelhado + salada variada','Batata ou mandioca + carne magra + legumes','Arroz integral + peixe + feijão + folhas','Macarrão simples + frango desfiado + legumes'],
+    lanche: ['Fruta + iogurte natural','Pão integral + queijo branco','Banana + pasta de amendoim sem açúcar','Iogurte + aveia'],
+    jantar: ['Omelete com legumes + arroz e feijão','Sopa de legumes com frango desfiado','Arroz + feijão + peixe + salada','Sanduíche caseiro de frango + salada']
+  },
+  vegetariano: {
+    cafe: ['Iogurte natural + aveia + banana + canela','Ovos mexidos + pão integral + fruta','Mingau de aveia + fruta','Tapioca com queijo branco + fruta'],
+    almoco: ['Arroz + feijão + ovos + salada variada','Batata + lentilha + legumes + folhas','Arroz integral + grão-de-bico + salada','Macarrão + molho de tomate + lentilha + legumes'],
+    lanche: ['Fruta + iogurte natural','Pão integral + queijo branco','Banana + pasta de amendoim sem açúcar','Iogurte + aveia'],
+    jantar: ['Omelete com legumes + arroz e feijão','Sopa de legumes com lentilha','Arroz + feijão + ovos + salada','Sanduíche caseiro com ovo + salada']
+  }
+};
+
+const groceryBase = {
+  onivoro: ['arroz','feijão','aveia','pão integral','ovos','frango','peixe','carne magra','iogurte natural','leite','banana','frutas da estação','folhas','tomate','cenoura','legumes variados','batata ou mandioca','macarrão','canela'],
+  vegetariano: ['arroz','feijão','lentilha','grão-de-bico','aveia','pão integral','ovos','queijo branco','iogurte natural','banana','frutas da estação','folhas','tomate','cenoura','legumes variados','batata ou mandioca','macarrão','canela']
+};
+
+const activityFactor = { sedentario: 1.2, leve: 1.375, moderado: 1.55, alto: 1.725 };
+
+function calculate(values) {
+  const age = Number(values.age), weight = Number(values.weight), height = Number(values.height);
+  if (![age, weight, height].every(Number.isFinite) || age < 18 || age > 64 || weight <= 0 || height <= 0) {
+    return { error: 'Este MVP aceita somente adultos de 18 a 64 anos com dados válidos.' };
+  }
+  const bmi = weight / ((height / 100) ** 2);
+  const bmr = values.sex === 'feminino' ? 10*weight + 6.25*height - 5*age - 161 : 10*weight + 6.25*height - 5*age + 5;
+  const tdee = bmr * (activityFactor[values.activity] || 1.375);
+  const adjustment = values.goal === 'reduzir' ? -250 : values.goal === 'aumentar' ? 250 : 0;
+  const center = tdee + adjustment;
+  const protein = weight * (values.goal === 'aumentar' ? 1.5 : 1.3);
+  const fat = center * 0.27 / 9;
+  const carbs = Math.max(0, (center - protein*4 - fat*9) / 4);
+  return {
+    bmi, tdee,
+    energy: [Math.max(1200, center-150), center+150],
+    protein: [protein*.9, protein*1.1],
+    carbs: [carbs*.85, carbs*1.15],
+    fat: [fat*.85, fat*1.15],
+    review: bmi < 18.5 || bmi >= 35 || center < 1400 || center > 4000
+  };
+}
+
+export const range = (r, unit='') => `${Math.round(r[0])}–${Math.round(r[1])}${unit}`;
+
+
+const PRODUCT = { price: 'R$ 67', checkout: 'https://pay.kiwify.com.br/RM5AyxF' };
+let full = sessionStorage.getItem('nutripersonal_full') === '1';
+const $ = (s, root=document) => root.querySelector(s);
+const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+
+function track(event, payload={}) {
+  const detail = { event, ...payload, ts: new Date().toISOString() };
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(detail);
+  window.dispatchEvent(new CustomEvent('nutripersonal:event', { detail }));
+}
+
+function route() {
+  const p = location.hash ? location.hash.slice(1) : '/';
+  const page = p.startsWith('/app') ? 'app' : p.startsWith('/privacidade') ? 'privacy' : p.startsWith('/termos') ? 'terms' : p.startsWith('/contato') ? 'contact' : 'home';
+  $$('.page').forEach(el => el.hidden = el.dataset.page !== page);
+  window.scrollTo(0,0);
+  if (page === 'app') updateAccessUI();
+}
+
+function navigate(path) {
+  history.pushState({}, '', `${location.pathname}${location.search}#${path}`);
+  route();
+  track('page_view', { page: path });
+}
+
+$$('[data-nav]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); navigate(el.getAttribute('href')); }));
+window.addEventListener('popstate', route);
+window.addEventListener('hashchange', route);
+route();
+
+$$('[data-checkout]').forEach(a => {
+  a.href = PRODUCT.checkout;
+  a.addEventListener('click', () => track('checkout_click', { location: a.dataset.checkout }));
+});
+
+$('#start-demo')?.addEventListener('click', () => { track('demo_start'); navigate('/app'); });
+
+$('#lead-form')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.currentTarget, status = $('#lead-status');
+  status.textContent = 'Formulário desativado neste preview público.';
+  track('lead_submit_preview');
+});
+
+function updateAccessUI() {
+  $('#access-ok').hidden = !full;
+  $('#access-form').hidden = full;
+  $('#mode-label').textContent = full ? 'ACESSO COMPLETO' : 'DEMONSTRAÇÃO';
+  $('#unlock-note').textContent = full ? '7 dias, lista e PDF liberados.' : 'A demonstração mostra 1 dia. O acesso completo libera 7 dias, lista e PDF.';
+  if ($('#results').dataset.generated === '1') generatePlan();
+}
+
+$('#access-form')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const code = $('#access-code').value.trim();
+  const status = $('#access-status');
+  status.textContent = 'Validando...';
+  if (code !== 'NUTRI-PREVIEW-2026') { status.textContent = 'Código inválido.'; return; }
+  sessionStorage.setItem('nutripersonal_full','1'); full = true; status.textContent = 'Acesso liberado no preview.'; track('access_unlocked'); updateAccessUI();
+});
+
+function values() {
+  return Object.fromEntries(new FormData($('#planner-form')).entries());
+}
+
+function buildMeals(style, count) {
+  const lib = mealLibrary[style] || mealLibrary.onivoro;
+  const names = ['Dia 1','Dia 2','Dia 3','Dia 4','Dia 5','Dia 6','Dia 7'];
+  return names.slice(0,count).map((day,i) => ({ day, meals:[['Café da manhã',lib.cafe[i%lib.cafe.length]],['Almoço',lib.almoco[i%lib.almoco.length]],['Lanche',lib.lanche[i%lib.lanche.length]],['Jantar',lib.jantar[i%lib.jantar.length]]] }));
+}
+
+function generatePlan(e) {
+  e?.preventDefault();
+  const v = values();
+  const r = calculate(v);
+  const root = $('#results'); root.dataset.generated = '1';
+  if (r.error) { root.innerHTML = `<div class="warning"><strong>Não foi possível gerar.</strong><p>${r.error}</p></div>`; return; }
+  track('plan_generated', { mode: full ? 'full' : 'demo', goal:v.goal, style:v.style });
+  const days = buildMeals(v.style, full ? 7 : 1).map(d => `<article class="day-card"><h3>${d.day}</h3>${d.meals.map(([l,t])=>`<div class="meal-row"><span>${l}</span><p>${t}</p></div>`).join('')}</article>`).join('');
+  const groceries = full ? `<section class="grocery"><span class="eyebrow">Lista de compras base</span><h2>Itens para montar a semana</h2><div class="chips">${groceryBase[v.style].map(i=>`<span>□ ${i}</span>`).join('')}</div><p class="fineprint">Ajuste quantidades ao número de pessoas, frequência de refeições e orientação profissional individual.</p></section>` : '';
+  const upgrade = full ? '' : `<div class="upgrade no-print"><h3>O restante fica no acesso completo.</h3><p>Libere 7 dias, lista de compras e exportação em PDF.</p><a class="btn light" href="${PRODUCT.checkout}" target="_blank" rel="noreferrer" data-dynamic-checkout>Comprar por ${PRODUCT.price}</a></div>`;
+  root.innerHTML = `
+    <div class="result-head"><div><span class="eyebrow">Resultado educativo</span><h2>Suas referências</h2></div>${full?'<button class="btn ghost no-print" id="pdf-btn">Salvar em PDF</button>':''}</div>
+    ${r.review?'<div class="warning"><strong>Revisão profissional recomendada</strong><p>Seus dados ficaram fora da faixa simplificada usada por este MVP. Procure nutricionista antes de mudanças relevantes.</p></div>':''}
+    <div class="metric-grid"><article><small>IMC estimado</small><strong>${r.bmi.toFixed(1)}</strong></article><article><small>Gasto diário estimado</small><strong>${Math.round(r.tdee)} kcal</strong></article><article><small>Faixa energética</small><strong>${range(r.energy,' kcal')}</strong></article></div>
+    <div class="macro-grid"><article><span>Proteína</span><strong>${range(r.protein,' g')}</strong></article><article><span>Carboidratos</span><strong>${range(r.carbs,' g')}</strong></article><article><span>Gorduras</span><strong>${range(r.fat,' g')}</strong></article></div>
+    <section class="meal-plan"><div class="result-head"><div><span class="eyebrow">Modelos de combinação</span><h2>${full?'7 dias':'1 dia de demonstração'}</h2></div></div>${days}</section>${groceries}${upgrade}`;
+  $('#pdf-btn')?.addEventListener('click', () => { track('pdf_export'); window.print(); });
+  $('[data-dynamic-checkout]')?.addEventListener('click',()=>track('checkout_click',{location:'app'}));
+}
+$('#planner-form')?.addEventListener('submit', generatePlan);
+
+</script></body></html>
